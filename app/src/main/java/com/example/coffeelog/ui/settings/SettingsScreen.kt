@@ -35,15 +35,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.coffeelog.ui.components.ScreenHeader
-import com.example.coffeelog.ui.theme.Archivo
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
+import com.example.coffeelog.ui.theme.Emphasis
 import androidx.compose.runtime.LaunchedEffect
 
 @Composable
@@ -120,10 +118,7 @@ fun SettingsScreen(
 private fun SectionLabel(text: String) {
     Text(
         text = text,
-        fontFamily = Archivo,
-        fontWeight = FontWeight.W700,
-        fontSize = 9.sp,
-        letterSpacing = 1.sp,
+        style = AppType.SectionLabel,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
         modifier = Modifier.padding(top = 6.dp),
     )
@@ -154,17 +149,13 @@ private fun SettingCard(
             Column {
                 Text(
                     title,
-                    fontFamily = Archivo,
-                    fontWeight = FontWeight.W700,
-                    fontSize = 14.sp,
+                    style = AppType.SettingTitle,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     subtitle,
-                    fontFamily = JetBrainsMono,
-                    fontWeight = FontWeight.W400,
-                    fontSize = 10.sp,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
+                    style = AppType.HelperSubtitle,
+                    color = Emphasis.tertiary,
                     modifier = Modifier.padding(top = 2.dp),
                 )
             }
@@ -177,9 +168,7 @@ private fun SettingCard(
 private fun Chevron() {
     Text(
         "›",
-        fontFamily = Archivo,
-        fontWeight = FontWeight.W400,
-        fontSize = 18.sp,
-        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
+        style = AppType.Chevron,
+        color = Emphasis.tertiary,
     )
 }

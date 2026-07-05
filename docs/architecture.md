@@ -163,7 +163,7 @@ The canvas adds things the PRD never specified — treat the design as authorita
 3. **Brew date displayed** on history cards (already stored as `createdAt`).
 4. **Steppers instead of plain text fields** for numeric input (tap −/+ to nudge; the center value stays directly editable so arbitrary values remain possible).
 5. **Auto-calculated RATIO shown live on the brew form**, read-only.
-6. Button labels: **"SAVE BREW"** and **"ADD TO INDEX"** instead of the PRD's generic "SAVE".
+6. Button labels: **"SAVE"** and **"ADD TO INDEX"** instead of the PRD's generic "SAVE".
 7. Tools/favorite on history cards are **read-only tags**, editable only on the form.
 
 Not in the design (PRD still governs): empty states, long-press delete + confirm dialog, edit mode entry by tapping a card.

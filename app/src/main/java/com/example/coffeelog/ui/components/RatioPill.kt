@@ -15,11 +15,8 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
 
 /** Read-only auto-calculated ratio pill: dashed border, accent value, muted `AUTO` label. */
 @Composable
@@ -51,17 +48,12 @@ fun RatioPill(ratio: String, modifier: Modifier = Modifier) {
     ) {
         Text(
             text = ratio,
-            fontFamily = JetBrainsMono,
-            fontWeight = FontWeight.W500,
-            fontSize = 14.sp,
+            style = AppType.Value,
             color = MaterialTheme.colorScheme.tertiary,
         )
         Text(
             text = "AUTO",
-            fontFamily = Archivo,
-            fontWeight = FontWeight.W700,
-            fontSize = 7.sp,
-            letterSpacing = 0.9.sp,
+            style = AppType.RatioPillLabel,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f),
         )
     }

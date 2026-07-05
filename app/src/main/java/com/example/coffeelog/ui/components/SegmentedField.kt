@@ -13,11 +13,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
+import com.example.coffeelog.ui.theme.AppType
 
 /** Segmented single-choice control (e.g. LIGHT / MEDIUM / DARK) styled per the design. */
 @Composable
@@ -40,10 +38,7 @@ fun SegmentedField(
             val segShape = RoundedCornerShape(3.dp)
             Text(
                 text = option,
-                fontFamily = Archivo,
-                fontWeight = FontWeight.W700,
-                fontSize = 11.sp,
-                letterSpacing = 0.6.sp,
+                style = AppType.SegmentedOption,
                 textAlign = TextAlign.Center,
                 color = if (isSelected) {
                     MaterialTheme.colorScheme.onTertiary

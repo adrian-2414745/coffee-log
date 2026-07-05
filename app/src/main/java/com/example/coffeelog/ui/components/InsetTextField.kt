@@ -16,13 +16,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
 
 /** Inset-panel text field used for the coffee name (single line) and brew notes (multi-line). */
 @Composable
@@ -41,9 +37,9 @@ fun InsetTextField(
         backgroundColor = accent.copy(alpha = 0.3f),
     )
     val textStyle = if (mono) {
-        TextStyle(fontFamily = JetBrainsMono, fontWeight = FontWeight.W400, fontSize = 13.sp, color = onSurface)
+        AppType.MonoField.copy(color = onSurface)
     } else {
-        TextStyle(fontFamily = Archivo, fontWeight = FontWeight.W700, fontSize = 15.sp, color = onSurface)
+        AppType.RowName.copy(color = onSurface)
     }
     CompositionLocalProvider(LocalTextSelectionColors provides selectionColors) {
         BasicTextField(

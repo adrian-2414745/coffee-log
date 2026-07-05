@@ -1,27 +1,25 @@
 package com.example.coffeelog.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
 
 /** Back `‹` + title (+ optional mono subtitle) header used on the non-dashboard screens. */
 @Composable
@@ -40,9 +38,7 @@ fun ScreenHeader(
     ) {
         Text(
             text = "‹",
-            fontFamily = Archivo,
-            fontWeight = FontWeight.W400,
-            fontSize = 26.sp,
+            style = AppType.Back,
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .clickable(onClick = onBack)
@@ -51,18 +47,13 @@ fun ScreenHeader(
         Column {
             Text(
                 text = title,
-                fontFamily = Archivo,
-                fontWeight = FontWeight.W800,
-                fontSize = 18.sp,
+                style = AppType.ScreenTitle,
                 color = MaterialTheme.colorScheme.onSurface,
             )
             if (subtitle != null) {
                 Text(
                     text = subtitle,
-                    fontFamily = JetBrainsMono,
-                    fontWeight = FontWeight.W500,
-                    fontSize = 10.sp,
-                    letterSpacing = 0.8.sp,
+                    style = AppType.HeaderSubtitle,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
                     modifier = Modifier.padding(top = 2.dp),
                 )
@@ -73,15 +64,30 @@ fun ScreenHeader(
     }
 }
 
-/** The amber circular `+` FAB. */
+/** Fixed bottom bar with a wide amber labelled button, e.g. "Add coffee" / "Add brew". */
 @Composable
-fun CoffeeFab(onClick: () -> Unit, contentDescription: String) {
-    FloatingActionButton(
-        onClick = onClick,
-        containerColor = MaterialTheme.colorScheme.primary,
-        contentColor = MaterialTheme.colorScheme.onPrimary,
-        shape = CircleShape,
+fun AddBar(label: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    val shape = RoundedCornerShape(6.dp)
+    Box(
+        modifier
+            .fillMaxWidth()
+            .navigationBarsPadding()
+            .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 16.dp),
     ) {
-        Icon(Icons.Filled.Add, contentDescription = contentDescription)
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .height(46.dp)
+                .clip(shape)
+                .background(MaterialTheme.colorScheme.primary)
+                .clickable(onClick = onClick),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(
+                text = label,
+                style = AppType.PrimaryButton,
+                color = MaterialTheme.colorScheme.onPrimary,
+            )
+        }
     }
 }

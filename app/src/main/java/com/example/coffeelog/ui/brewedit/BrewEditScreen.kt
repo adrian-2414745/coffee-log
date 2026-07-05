@@ -53,7 +53,7 @@ fun BrewEditScreen(
         containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             SaveCancelBar(
-                saveLabel = "SAVE BREW",
+                saveLabel = "SAVE",
                 onSave = { viewModel.save(onDone) },
                 onCancel = onDone,
                 saveEnabled = form.canSave,
@@ -72,13 +72,13 @@ fun BrewEditScreen(
                     .verticalScroll(rememberScrollState())
                     .padding(horizontal = 16.dp),
             ) {
-                StepperField("DOSE", form.dose, viewModel::onDoseChange, { viewModel.step(StepField.DOSE, it) }, unit = "g")
+                StepperField("DOSE", form.dose, viewModel::onDoseChange, { viewModel.step(StepField.DOSE, it) }, unit = "g", required = true)
                 FormDivider()
                 StepperField("GRIND", form.grind, viewModel::onGrindChange, { viewModel.step(StepField.GRIND, it) })
                 FormDivider()
                 StepperField("TIME", form.time, viewModel::onTimeChange, { viewModel.step(StepField.TIME, it) }, unit = "s", keyboardType = KeyboardType.Number)
                 FormDivider()
-                StepperField("YIELD", form.yieldG, viewModel::onYieldChange, { viewModel.step(StepField.YIELD, it) }, unit = "g")
+                StepperField("YIELD", form.yieldG, viewModel::onYieldChange, { viewModel.step(StepField.YIELD, it) }, unit = "g", required = true)
                 FormDivider()
                 LabeledRow("RATIO") { RatioPill(form.ratio) }
                 FormDivider()

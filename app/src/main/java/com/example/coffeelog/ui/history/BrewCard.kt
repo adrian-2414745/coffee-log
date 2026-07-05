@@ -17,14 +17,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.coffeelog.data.db.BrewEntity
 import com.example.coffeelog.ui.components.MetricCell
 import com.example.coffeelog.ui.components.MetricGrid
 import com.example.coffeelog.ui.components.StatusTag
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
+import com.example.coffeelog.ui.theme.Emphasis
 import com.example.coffeelog.util.DateFormat
 import com.example.coffeelog.util.MetricFormat
 import com.example.coffeelog.util.RatioFormatter
@@ -74,10 +73,8 @@ fun BrewCard(
             }
             Text(
                 text = DateFormat.brewDate(brew.createdAt),
-                fontFamily = JetBrainsMono,
-                fontWeight = FontWeight.W500,
-                fontSize = 11.sp,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
+                style = AppType.DateStamp,
+                color = Emphasis.tertiary,
             )
         }
     }

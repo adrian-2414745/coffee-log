@@ -30,21 +30,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.coffeelog.data.db.DashboardRow
 import com.example.coffeelog.ui.components.ConfirmDeleteDialog
-import com.example.coffeelog.ui.components.CoffeeFab
+import com.example.coffeelog.ui.components.AddBar
 import com.example.coffeelog.ui.components.MetricCell
 import com.example.coffeelog.ui.components.MetricGrid
-import com.example.coffeelog.ui.theme.Archivo
+import com.example.coffeelog.ui.theme.AppType
+import com.example.coffeelog.ui.theme.Emphasis
 import com.example.coffeelog.util.MetricFormat
 
 @Composable
@@ -59,7 +57,7 @@ fun DashboardScreen(
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
-        floatingActionButton = { CoffeeFab(onClick = onAddCoffee, contentDescription = "Add coffee") },
+        bottomBar = { AddBar(label = "Add coffee", onClick = onAddCoffee) },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner)) {
             Row(
@@ -69,9 +67,7 @@ fun DashboardScreen(
             ) {
                 Text(
                     "Coffee Index",
-                    fontFamily = Archivo,
-                    fontWeight = FontWeight.W800,
-                    fontSize = 22.sp,
+                    style = AppType.DashboardTitle,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
                 IconButton(onClick = onSettings) {
@@ -133,14 +129,12 @@ private fun CoffeeRow(
                     append(row.name)
                     row.roastLevel?.takeIf { it.isNotBlank() }?.let { roast ->
                         append(" ")
-                        withStyle(SpanStyle(color = lowEmphasis, fontWeight = FontWeight.W400)) {
+                        withStyle(AppType.HelperSubtitle.toSpanStyle().copy(color = lowEmphasis)) {
                             append("(${roast.lowercase()})")
                         }
                     }
                 },
-                fontFamily = Archivo,
-                fontWeight = FontWeight.W700,
-                fontSize = 15.sp,
+                style = AppType.RowName,
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -148,10 +142,8 @@ private fun CoffeeRow(
             )
             Text(
                 text = "›",
-                fontFamily = Archivo,
-                fontWeight = FontWeight.W400,
-                fontSize = 18.sp,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
+                style = AppType.Chevron,
+                color = Emphasis.tertiary,
             )
         }
         if (row.favBrewId != null) {

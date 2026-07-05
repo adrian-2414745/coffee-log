@@ -24,7 +24,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.coffeelog.data.db.BrewEntity
 import com.example.coffeelog.ui.components.ConfirmDeleteDialog
-import com.example.coffeelog.ui.components.CoffeeFab
+import com.example.coffeelog.ui.components.AddBar
 import com.example.coffeelog.ui.components.ScreenHeader
 
 @Composable
@@ -42,7 +42,7 @@ fun HistoryScreen(
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
-        floatingActionButton = { CoffeeFab(onClick = onAddBrew, contentDescription = "Add brew") },
+        bottomBar = { AddBar(label = "Add brew", onClick = onAddBrew) },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner)) {
             ScreenHeader(

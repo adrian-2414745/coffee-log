@@ -28,16 +28,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextRange
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
+import com.example.coffeelog.ui.theme.Emphasis
 
 /**
  * A metric input row: label on the left, and a `− value +` stepper on the right whose
@@ -55,6 +56,7 @@ fun StepperField(
     modifier: Modifier = Modifier,
     unit: String? = null,
     keyboardType: KeyboardType = KeyboardType.Decimal,
+    required: Boolean = false,
 ) {
     Row(
         modifier
@@ -63,7 +65,7 @@ fun StepperField(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        FieldLabel(label)
+        FieldLabel(label, required = required)
         Row(
             Modifier
                 .width(150.dp)
@@ -103,13 +105,7 @@ fun StepperField(
                             }
                         },
                     singleLine = true,
-                    textStyle = TextStyle(
-                        fontFamily = JetBrainsMono,
-                        fontWeight = FontWeight.W500,
-                        fontSize = 14.sp,
-                        color = onSurface,
-                        textAlign = TextAlign.Center,
-                    ),
+                    textStyle = AppType.Value.copy(color = onSurface, textAlign = TextAlign.Center),
                     keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
                     cursorBrush = SolidColor(accent),
                     decorationBox = { inner ->
@@ -122,8 +118,7 @@ fun StepperField(
                             if (unit != null) {
                                 Text(
                                     text = unit,
-                                    fontFamily = JetBrainsMono,
-                                    fontSize = 9.sp,
+                                    style = AppType.UnitSuffix.copy(fontWeight = FontWeight.W400),
                                     color = onSurface.copy(alpha = 0.5f),
                                     modifier = Modifier.padding(start = 1.dp),
                                 )
@@ -139,13 +134,19 @@ fun StepperField(
 }
 
 @Composable
-internal fun FieldLabel(label: String) {
+internal fun FieldLabel(label: String, required: Boolean = false) {
+    val base = MaterialTheme.colorScheme.onSurface
     Text(
-        text = label,
-        fontFamily = Archivo,
-        fontWeight = FontWeight.W700,
-        fontSize = 14.sp,
-        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
+        text = buildAnnotatedString {
+            append(label)
+            if (required) {
+                withStyle(SpanStyle(color = base.copy(alpha = 0.4f))) {
+                    append(" *")
+                }
+            }
+        },
+        style = AppType.FieldLabel,
+        color = Emphasis.emphasis,
     )
 }
 
@@ -160,10 +161,8 @@ private fun StepAffordance(symbol: String, onClick: () -> Unit) {
     ) {
         Text(
             text = symbol,
-            fontFamily = Archivo,
-            fontWeight = FontWeight.W400,
-            fontSize = 17.sp,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+            style = AppType.StepperGlyph,
+            color = Emphasis.secondary,
         )
     }
 }

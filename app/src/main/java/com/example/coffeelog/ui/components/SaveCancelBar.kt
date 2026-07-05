@@ -18,10 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
+import com.example.coffeelog.ui.theme.AppType
 
 /** Fixed bottom action bar: a wide amber SAVE beside a quarter-width outlined CANCEL. */
 @Composable
@@ -58,10 +56,7 @@ fun SaveCancelBar(
         ) {
             Text(
                 text = saveLabel,
-                fontFamily = Archivo,
-                fontWeight = FontWeight.W800,
-                fontSize = 13.sp,
-                letterSpacing = 0.9.sp,
+                style = AppType.PrimaryButton,
                 color = MaterialTheme.colorScheme.onPrimary,
             )
         }
@@ -80,10 +75,7 @@ fun SaveCancelBar(
         ) {
             Text(
                 text = "CANCEL",
-                fontFamily = Archivo,
-                fontWeight = FontWeight.W800,
-                fontSize = 12.sp,
-                letterSpacing = 0.6.sp,
+                style = AppType.CancelButton,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
             )
         }

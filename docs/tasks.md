@@ -79,9 +79,9 @@ Legend: `[ ]` open · `[x]` done
 - [x] 5.2 `RatioFormatter` (`1:n`, one decimal, weight only) + unit tests.
 - [x] 5.3 Shared components per the design: `MetricGrid` (4-column inset grid), `StatusTag` (DISP/LEVEL/★ FAV chips, active vs muted), `RatingStars`.
 - [x] 5.4 Brew card composable per the design canvas: two-row `MetricGrid` (DOSE/GRIND/TIME/TEMP + YIELD/VOL/RATIO/SCORE, `—` for missing VOL, accent-colored ratio), read-only `StatusTag` row, date (`createdAt`, e.g. `27 JUN 2026`) bottom-right.
-- [x] 5.5 `BrewEditScreen` + ViewModel (new mode) per the design: `StepperField` rows (−/+ nudge, center value directly editable, numeric keyboard) for DOSE/GRIND/TIME/YIELD/TEMP/VOL, live read-only `RatioPill` (AUTO), switches for DISP/LEVEL/FAV, star selector, NOTES free-text area, `COFFEE NAME · UNSAVED` subtitle, fixed `SaveCancelBar` ("SAVE BREW" + "CANCEL").
+- [x] 5.5 `BrewEditScreen` + ViewModel (new mode) per the design: `StepperField` rows (−/+ nudge, center value directly editable, numeric keyboard) for DOSE/GRIND/TIME/YIELD/TEMP/VOL, live read-only `RatioPill` (AUTO), switches for DISP/LEVEL/FAV, star selector, NOTES free-text area, `COFFEE NAME · UNSAVED` subtitle, fixed `SaveCancelBar` ("SAVE" + "CANCEL").
 - [x] 5.6 Validation: save enabled only when dose (grounds) and yield (liquid weight) parse as numbers > 0; favorite ON stamps `favoritedAt`.
-- [x] 5.7 Wire navigation: History FAB → BrewEdit(new); SAVE BREW persists and pops to History; CANCEL/back discards.
+- [x] 5.7 Wire navigation: History FAB → BrewEdit(new); SAVE persists and pops to History; CANCEL/back discards.
 - [x] 5.8 Unit tests for form parsing/validation.
 
 **Manual QA**
@@ -91,7 +91,7 @@ Legend: `[ ]` open · `[x]` done
 - RATIO pill on the form updates live as dose/yield change.
 - Steppers nudge values; typing directly into the value still works.
 - Add a second brew → it appears at the top (newest first).
-- SAVE BREW disabled until dose and yield are valid; optional fields can stay empty (VOL shows `—` on the card).
+- SAVE disabled until dose and yield are valid; optional fields can stay empty (VOL shows `—` on the card).
 - CANCEL and system back discard the form; back from History returns to Dashboard.
 
 ---

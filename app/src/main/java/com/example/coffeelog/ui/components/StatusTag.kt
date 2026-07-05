@@ -11,10 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
+import com.example.coffeelog.ui.theme.AppType
 
 /** Read-only status chip: DISP / LEVEL / ★ FAV, active (accent) or muted. */
 @Composable
@@ -27,10 +25,7 @@ fun StatusTag(text: String, active: Boolean, modifier: Modifier = Modifier) {
     val fg = if (active) accent else onSurface.copy(alpha = 0.28f)
     Text(
         text = text,
-        fontFamily = Archivo,
-        fontWeight = FontWeight.W700,
-        fontSize = 8.sp,
-        letterSpacing = 0.7.sp,
+        style = AppType.StatusTag,
         color = fg,
         modifier = modifier
             .clip(shape)

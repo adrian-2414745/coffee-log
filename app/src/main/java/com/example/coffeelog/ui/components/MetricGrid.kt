@@ -16,11 +16,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.coffeelog.ui.theme.Archivo
-import com.example.coffeelog.ui.theme.JetBrainsMono
+import com.example.coffeelog.ui.theme.AppType
+import com.example.coffeelog.ui.theme.Emphasis
 
 data class MetricCell(
     val label: String,
@@ -37,7 +35,7 @@ data class MetricCell(
 @Composable
 fun MetricGrid(cells: List<MetricCell>, modifier: Modifier = Modifier) {
     val rows = cells.chunked(4)
-    val divider = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f)
+    val divider = Emphasis.divider
     Column(
         modifier
             .fillMaxWidth()
@@ -79,11 +77,8 @@ private fun MetricCellContent(cell: MetricCell) {
     val onSurface = MaterialTheme.colorScheme.onSurface
     Text(
         text = cell.label,
-        fontFamily = Archivo,
-        fontWeight = FontWeight.W700,
-        fontSize = 9.sp,
-        letterSpacing = 0.5.sp,
-        color = onSurface.copy(alpha = 0.5f),
+        style = AppType.MetricLabel,
+        color = Emphasis.secondary,
     )
     Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 3.dp)) {
         val valueColor = when {
@@ -93,18 +88,14 @@ private fun MetricCellContent(cell: MetricCell) {
         }
         Text(
             text = cell.value,
-            fontFamily = JetBrainsMono,
-            fontWeight = FontWeight.W500,
-            fontSize = 15.sp,
+            style = AppType.MetricValue,
             color = valueColor,
         )
         if (cell.unit != null) {
             Text(
                 text = cell.unit,
-                fontFamily = JetBrainsMono,
-                fontWeight = FontWeight.W500,
-                fontSize = 9.sp,
-                color = onSurface.copy(alpha = 0.4f),
+                style = AppType.UnitSuffix,
+                color = Emphasis.tertiary,
                 modifier = Modifier.padding(start = 1.dp, bottom = 1.dp),
             )
         }

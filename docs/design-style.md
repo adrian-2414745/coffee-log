@@ -17,40 +17,60 @@ dark themes from a single component set.
 
 Two families only — geometric sans for text, monospace for numbers.
 
-| Family | Weights | Used for |
+| Family | Weights used | Used for |
 | --- | --- | --- |
-| **Archivo** (variable) | 400, 500, 600, 700, 800, 900 | Titles, labels, buttons, all UI text, the `+` FAB glyph, chevrons |
-| **JetBrains Mono** | 400, 500, 700 | All numeric values, header subtitles / metadata, dates, notes body |
+| **Archivo** (variable) | 400, 700, 800 | Titles, names, section/tag/field labels, buttons, segmented options, nav glyphs (`‹` `›`), stepper `−`/`+` |
+| **JetBrains Mono** | 400, 500 | All numeric values, header subtitle / metadata, helper (descriptor) subtitles, unit suffixes, dates, notes body, mono text-field input |
 
-Loaded from Google Fonts in the mockup; bundled as variable fonts (`R.font.archivo`,
+The family files declare more weights (Archivo 400–900, Mono 400/500/700); the list above
+is what the UI actually uses — **stay within it** so the two ramps stay legible. Loaded from
+Google Fonts in the mockup; bundled as variable fonts (`R.font.archivo`,
 `R.font.jetbrains_mono`) in the app.
 
 ### Type scale (as used)
 
-| Role | Family / weight | Size | Tracking |
-| --- | --- | --- | --- |
-| Dashboard title ("Coffee Index") | Archivo 800 | 22 | — |
-| Screen-header title | Archivo 800 | 18 | — |
-| Header subtitle / metadata (e.g. `ETHIOPIA GUJI · UNSAVED`) | Mono 500 | 10 | .08em, UPPER |
-| Card / row name | Archivo 700 | 15 | — |
-| Form field label (DOSE, GRIND…) | Archivo 700 | 14 | .02em |
-| Section label (settings "DATA") | Archivo 700 | 9 | .10em, UPPER |
-| Metric cell label | Archivo 700 | 8 | .08–.09em, UPPER |
-| Metric cell value | Mono 500 | 14 | — |
-| Unit suffix (`g`, `s`, `ml`, `/5`) | inline in value | 9–10 | muted |
-| Status tag (DISP / LEVEL / FAV) | Archivo 700 | 8 | .09em, UPPER |
-| Primary button (SAVE) | Archivo 800 | 13 | .07em, UPPER |
-| Cancel button | Archivo 800 | 12 | .05em, UPPER |
-| Segmented option (LIGHT/MEDIUM/DARK) | Archivo 700 | 11 | .06em, UPPER |
-| Date stamp | Mono 500 | 11 | — |
-| Back `‹` | Archivo 400 | 24–26 | — |
-| Chevron `›` | Archivo 400 | 18 | — |
+Tracking is the raw `letterSpacing` in `sp` (what the code sets), not em. "Emphasis" names
+a row in [Emphasis levels](#emphasis-levels-text-on-surface); accent = theme `tertiary`.
+Every role below maps to exactly one entry here — pick the matching role rather than
+inventing a new size/weight, and if a genuinely new role is needed, add it here first.
+
+| Role | Family / weight | Size | Tracking | Case | Emphasis |
+| --- | --- | --- | --- | --- | --- |
+| Dashboard title ("Coffee Index") | Archivo 800 | 22 | — | — | Primary |
+| Screen-header title | Archivo 800 | 18 | — | — | Primary |
+| Card / row name, `SettingCard` title | Archivo 700 | 15 / 14 | — | — | Primary |
+| Text-field input (name) | Archivo 700 | 15 | — | — | Primary |
+| Form field label (`DOSE`, `NAME`…) | Archivo 700 | 14 | — | UPPER | Emphasis (.85); `*` at .4 |
+| Section label (settings `DATA`) | Archivo 700 | 9 | 1.0 | UPPER | Secondary (.45) |
+| Metric cell label | Archivo 700 | 9 | 0.5 | UPPER | Secondary (.5) |
+| Status tag (`DISP` / `LEVEL` / `FAV`) | Archivo 700 | 8 | 0.7 | UPPER | accent if active, else Disabled (.28) |
+| RATIO-pill label | Archivo 700 | 7 | 0.9 | UPPER | Secondary (.35) |
+| Segmented option (`LIGHT`/`MEDIUM`/`DARK`) | Archivo 700 | 11 | 0.6 | UPPER | Primary selected, Secondary (.5) idle |
+| Primary button (`SAVE`, `Add coffee`, `Add brew`) | Archivo 800 | 13 | 0.9 | as written | onPrimary |
+| Cancel button | Archivo 800 | 12 | 0.6 | UPPER | Secondary (.6) |
+| Header subtitle / metadata (`ETHIOPIA GUJI · UNSAVED`) | Mono 500 | 10 | 0.8 | UPPER | Secondary (.45) |
+| **Helper / descriptor subtitle** (settings "Restore from a JSON backup"; dashboard roast `(medium)`) | Mono 400 | 10 | — | sentence | Tertiary (.4) |
+| Metric cell value | Mono 500 | 15 | — | — | Primary; Tertiary (.4) if muted |
+| RATIO-pill / stepper value | Mono 500 | 14 | — | — | Primary |
+| Mono text-field input (notes body, numeric fields) | Mono 400 | 13 | — | sentence | Primary; placeholder Tertiary (.4) |
+| Unit suffix (`g`, `s`, `ml`, `/5`) | Mono 500 (stepper 400) | 9 | — | — | Tertiary (.4–.5) |
+| Date stamp | Mono 500 | 11 | — | — | Tertiary (.4) |
+| Stepper `−` / `+` glyph | Archivo 400 | 17 | — | — | Secondary (.5) |
+| Back `‹` | Archivo 400 | 26 | — | — | Primary |
+| Chevron `›` | Archivo 400 | 18 | — | — | Tertiary (.4) |
+
+**Helper / descriptor subtitle** is the one recently reconciled: any short muted
+explanatory line *next to or under* a name — a settings row's description, the dashboard's
+parenthetical roast — is **Mono 400 / 10 / Tertiary (.4)**. It is deliberately distinct from
+the **header subtitle** (Mono 500 / 10 / tracked / UPPERCASE), which is screen-level
+metadata. Don't render descriptor text in Archivo or at the name's own size.
 
 ---
 
 ## Color
 
-The **primary amber is shared across both themes** (FAB, primary SAVE button). Each
+The **primary amber is shared across both themes** (primary action buttons — SAVE and the
+`Add coffee` / `Add brew` bars). Each
 theme also has a **tertiary accent** that differs — amber in dark, red in light — used
 for "active/live" affordances.
 
@@ -63,7 +83,7 @@ for "active/live" affordances.
 | surfaceContainerHighest | `#211E1A` | recessed inset panels (metric grid, fields, steppers) |
 | outlineVariant | `#393530` | card / tile borders |
 | onSurface | `#EDE7DB` | primary text |
-| tertiary (accent) | `#E9B10A` amber | active toggles, RATIO, stars, active tags |
+| tertiary (accent) | `#E9B10A` amber | active toggles, RATIO value, stars, active tags |
 
 ### Light — Functionalist (palette B)
 
@@ -80,13 +100,14 @@ for "active/live" affordances.
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| primary | `#E9B10A` amber | FAB, primary SAVE button (both themes) |
+| primary | `#E9B10A` amber | primary action buttons — SAVE, `Add coffee` / `Add brew` (both themes) |
 | onPrimary | `#201E1B` (dark) / `#2B2A27` (light) | text/glyph on amber |
 | device frame border | `#3A3631` (dark) / `#D6D2C7` (light) | screen outline in mockup |
 
 ### Accent semantics
 
-- **Amber (`primary`)** — the one always-on brand color: FAB and the primary action button.
+- **Amber (`primary`)** — the one always-on brand color: the primary action buttons (SAVE,
+  and the `Add coffee` / `Add brew` bars).
 - **Tertiary accent** (amber-dark / red-light) — "on / live / rated" states only:
   switches, the auto-computed RATIO value, star ratings, active status tags, notes caret,
   settings row icons.
@@ -129,11 +150,12 @@ the last row is a divider tone, not text.
   inset panels use an *inner* shadow (`inset 0 1px 3px`) to read as recessed/molded.
 - **Metric grid:** 4-column grid; 1px cell dividers at ~10% onSurface; label (tiny, muted,
   tracked) stacked over mono value. 4 cells = dashboard summary, 8 cells = full brew card.
-- **FAB:** 56px amber circle, bottom-right, `+` glyph (Archivo 300, 30px), inset top
-  highlight.
 - **Toggle:** 32×18 pill track, 14px thumb; accent-filled when on, neutral track when off.
-- **Buttons:** fixed bottom bar — wide amber SAVE (flex 3) beside a quarter-width outlined
-  CANCEL (flex 1), 46px tall.
+- **Buttons:** fixed bottom bar, 46px tall. Two forms: (1) full-width amber **add bar**
+  (`AddBar`, dashboard / history) and (2) the **save + cancel** pair (`SaveCancelBar`, edit
+  screens) — wide amber SAVE (flex 3) beside a quarter-width outlined CANCEL (flex 1). Both
+  share the 6px radius, amber fill and Archivo-800/13 label. The screens have no floating
+  action button — the primary add action lives in the bottom bar.
 - **Status tags:** filled accent-tint + accent border when active; hollow neutral border,
   dimmed text when inactive.
 

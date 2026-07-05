@@ -20,7 +20,7 @@ flowchart TD
     History -- "tap edit (pencil) icon" --> EditCoffee
     History -- "back ‹ / system back" --> Dashboard
 
-    BrewEdit -- "SAVE BREW / CANCEL / back ‹" --> History
+    BrewEdit -- "SAVE / CANCEL / back ‹" --> History
 
     AddCoffee -- "ADD TO INDEX / CANCEL / back ‹" --> Dashboard
 
