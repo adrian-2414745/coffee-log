@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Reconnect the real phone over Wi-Fi ADB.
 #
-# Pairing is one-time and persists (see connection.md); only the *connect port*
+# Pairing is one-time and persists (see docs/connection.md); only the *connect port*
 # changes each session — it's shown on the phone's main Wireless debugging screen
 # under "IP address & Port". Pass that port here.
 #

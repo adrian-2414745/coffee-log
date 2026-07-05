@@ -1,6 +1,6 @@
 # Coffee Log — Stories & Tasks
 
-Implementation plan derived from [PRD.md](PRD.md), [architecture.md](architecture.md), and the design canvas [design/coffee-brewing-journal.dc.html](design/coffee-brewing-journal.dc.html) (both palettes ship: B = light theme, A = Graphite dark theme; Settings has a dark-theme toggle).
+Implementation plan derived from [PRD.md](PRD.md), [architecture.md](architecture.md), and the design canvas [design/coffee-brewing-journal.dc.html](../design/coffee-brewing-journal.dc.html) (both palettes ship: B = light theme, A = Graphite dark theme; Settings has a dark-theme toggle).
 Stories are ordered so the app is buildable, runnable (`./dev.sh`), and manually QA-able after **every** story.
 
 Legend: `[ ]` open · `[x]` done

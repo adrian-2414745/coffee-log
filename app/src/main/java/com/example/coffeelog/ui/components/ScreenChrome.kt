@@ -3,6 +3,8 @@ package com.example.coffeelog.ui.components
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
@@ -28,11 +30,12 @@ fun ScreenHeader(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     subtitle: String? = null,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     Row(
         modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 20.dp, top = 16.dp, bottom = 12.dp),
+            .padding(start = 16.dp, end = 12.dp, top = 16.dp, bottom = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -65,6 +68,8 @@ fun ScreenHeader(
                 )
             }
         }
+        Spacer(Modifier.weight(1f))
+        actions()
     }
 }
 

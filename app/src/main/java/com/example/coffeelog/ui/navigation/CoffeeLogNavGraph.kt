@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.coffeelog.ui.addcoffee.AddCoffeeScreen
 import com.example.coffeelog.ui.dashboard.DashboardScreen
+import com.example.coffeelog.ui.editcoffee.EditCoffeeScreen
 import com.example.coffeelog.ui.history.HistoryScreen
 import com.example.coffeelog.ui.brewedit.BrewEditScreen
 import com.example.coffeelog.ui.settings.SettingsScreen
@@ -29,6 +30,7 @@ fun CoffeeLogNavGraph() {
                 onBack = { navController.popBackStack() },
                 onAddBrew = { navController.navigate(BrewEdit(route.coffeeId)) },
                 onEditBrew = { brewId -> navController.navigate(BrewEdit(route.coffeeId, brewId)) },
+                onEditCoffee = { navController.navigate(EditCoffee(route.coffeeId)) },
             )
         }
         composable<BrewEdit> { backStackEntry ->
@@ -41,6 +43,9 @@ fun CoffeeLogNavGraph() {
         }
         composable<AddCoffee> {
             AddCoffeeScreen(onDone = { navController.popBackStack() })
+        }
+        composable<EditCoffee> {
+            EditCoffeeScreen(onDone = { navController.popBackStack() })
         }
         composable<Settings> {
             SettingsScreen(onBack = { navController.popBackStack() })

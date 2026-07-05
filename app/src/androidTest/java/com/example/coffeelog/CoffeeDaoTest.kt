@@ -105,6 +105,20 @@ class CoffeeDaoTest {
     }
 
     @Test
+    fun update_changesNameAndRoastButKeepsIdentity() = runTest {
+        val id = coffeeDao.insert(CoffeeEntity(name = "Brazil", roastLevel = "MEDIUM", createdAt = 100))
+        val original = coffeeDao.getById(id)!!
+
+        coffeeDao.update(original.copy(name = "Brazil Santos", roastLevel = "DARK"))
+
+        val updated = coffeeDao.getById(id)!!
+        assertEquals(id, updated.id)
+        assertEquals("Brazil Santos", updated.name)
+        assertEquals("DARK", updated.roastLevel)
+        assertEquals(100L, updated.createdAt)
+    }
+
+    @Test
     fun deletingCoffee_cascadesToBrews() = runTest {
         val id = coffeeDao.insert(CoffeeEntity(name = "Brazil", roastLevel = null, createdAt = 1))
         brewDao.insert(brew(id, createdAt = 100))

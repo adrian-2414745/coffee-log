@@ -3,6 +3,7 @@ package com.example.coffeelog.data.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -10,6 +11,9 @@ interface CoffeeDao {
 
     @Insert
     suspend fun insert(coffee: CoffeeEntity): Long
+
+    @Update
+    suspend fun update(coffee: CoffeeEntity)
 
     @Query("DELETE FROM coffees WHERE id = :coffeeId")
     suspend fun deleteById(coffeeId: Long)

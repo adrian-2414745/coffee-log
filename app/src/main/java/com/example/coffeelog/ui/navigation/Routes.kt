@@ -15,4 +15,7 @@ data class BrewEdit(val coffeeId: Long, val brewId: Long? = null)
 object AddCoffee
 
 @Serializable
+data class EditCoffee(val coffeeId: Long)
+
+@Serializable
 object Settings

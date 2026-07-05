@@ -7,6 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -29,6 +33,7 @@ fun HistoryScreen(
     onBack: () -> Unit,
     onAddBrew: () -> Unit,
     onEditBrew: (Long) -> Unit,
+    onEditCoffee: () -> Unit,
     viewModel: HistoryViewModel = viewModel(factory = HistoryViewModel.Factory),
 ) {
     val name by viewModel.coffeeName.collectAsStateWithLifecycle()
@@ -40,7 +45,19 @@ fun HistoryScreen(
         floatingActionButton = { CoffeeFab(onClick = onAddBrew, contentDescription = "Add brew") },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner)) {
-            ScreenHeader(title = name, onBack = onBack)
+            ScreenHeader(
+                title = name,
+                onBack = onBack,
+                actions = {
+                    IconButton(onClick = onEditCoffee) {
+                        Icon(
+                            Icons.Outlined.Edit,
+                            contentDescription = "Edit coffee",
+                            modifier = Modifier.padding(2.dp),
+                        )
+                    }
+                },
+            )
             LazyColumn(
                 Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 16.dp),

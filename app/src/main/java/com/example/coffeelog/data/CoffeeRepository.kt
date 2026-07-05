@@ -21,6 +21,7 @@ class CoffeeRepository(private val db: CoffeeLogDatabase) {
     fun observeCoffeeName(coffeeId: Long): Flow<String?> = coffeeDao.observeName(coffeeId)
     suspend fun getCoffee(coffeeId: Long): CoffeeEntity? = coffeeDao.getById(coffeeId)
     suspend fun addCoffee(coffee: CoffeeEntity): Long = coffeeDao.insert(coffee)
+    suspend fun updateCoffee(coffee: CoffeeEntity) = coffeeDao.update(coffee)
     suspend fun deleteCoffee(coffeeId: Long) = coffeeDao.deleteById(coffeeId)
 
     // Brews

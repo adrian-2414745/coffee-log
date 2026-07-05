@@ -1,14 +1,15 @@
 Coffee Brewing Journal — App Specifications
 
 This app helps you remember your exact coffee recipes so you never have to repeat the frustrating process of "dialing in" your beans once you find the perfect cup.
-Screen 1: Main Dashboard
+
+Screen 1: Main Dashboard ("Coffee Index")
 What it shows (Data to display)
 
-    A list of all the coffee bags you have added, sorted alphabetically by name.
+    A list of all the coffee bags you have added, sorted alphabetically by name (case-insensitive).
 
-    If you have marked any recipe as a favorite for a specific coffee, that row will show a summary of the most recently favorited recipe right on the front screen, main metrics only:
+    If you have marked any brew as a favorite for a specific coffee, that row shows a metric summary of the most recently favorited brew for that coffee, main metrics only:
 
-        Coffee dry weight, grind size, brew time, water temperature
+        Dose (grounds weight), grind size, brew time, final liquid yield (weight).
 
     Empty state: when no coffees have been added yet, only the "+" button is shown.
 
@@ -18,96 +19,133 @@ How you interact with it (Page navigation & Buttons)
 
     Tap a coffee name: Takes you to Screen 2 (Coffee History Log).
 
-    Tap the "+" button: A fixed button at the bottom right of the screen that takes you to Screen 4 (Add New Coffee).
+    Tap the "+" button: A fixed floating button at the bottom right of the screen that takes you to Screen 4 (Add New Coffee).
 
-    Tap the settings button (top right): Takes you to Screen 5 (Settings).
+    Tap the settings button (top right): Takes you to Screen 6 (Settings).
 
-    Press and hold (Long tap) a row: Opens a pop-up window asking: "Are you sure you want to delete?" with a [Yes] and [Cancel] button.
+    Press and hold (Long tap) a row: Opens a pop-up window asking: "Are you sure you want to delete?" with a [Yes] and [Cancel] button. Deletes the coffee and all of its brews.
 
 Screen 2: Coffee History Log
 What it shows (Data to display)
 
-    A list of every single brewing attempt you've made for this specific coffee bag.
+    The coffee's name as the screen title.
 
-    The list is sorted chronologically, showing your newest brew at the top and oldest at the bottom.
+    A list of every brewing attempt logged for this specific coffee bag.
 
-    Each recipe card clearly displays:
+    The list is sorted chronologically, showing the newest brew at the top and oldest at the bottom.
 
-        Settings used: Coffee grounds weight, grind setting (e.g., 5.1), brew time (in seconds), water temperature.
+    Each brew card clearly displays:
 
-        Tools used: Indicators showing whether you used a dispenser tool and/or a leveler tool, display separately: dispenser: yes/no, leveler: yes/no
+        Settings used: Dose (grounds weight), grind setting (e.g., 5.1), brew time (in seconds), water temperature.
 
-        Result: Final liquid weight, liquid volume (if you added it), and your score rating (1 to 5 stars).
+        Tools used: Status tags showing whether a dispenser tool and/or a leveler tool was used, displayed separately: DISP (on/off), LEVEL (on/off).
 
-        The Golden Ratio: The app automatically calculates your brewing ratio (e.g., 1:2) based on your coffee grounds weight and liquid yield weight.
+        Result: Final liquid yield (weight), liquid volume in ml (if entered), and score rating (1 to 5 stars, shown muted if not rated).
 
-        Favorite status: A visual icon (like a heart or star) highlighting if this was marked as a favorite cup. Multiple brews can be favorites.
+        The Golden Ratio: automatically calculated and displayed from dose and liquid yield (e.g., 1:2).
+
+        Favorite status: A "★ FAV" status tag highlighted if this brew was marked as a favorite. Multiple brews can be favorites.
+
+        The date the brew was logged.
 
     Empty state: when no brews have been logged yet, only the "+" button is shown.
 
 How you interact with it (Page navigation & Buttons)
 
-    Tap the "+" button: A fixed button at the bottom right that takes you to Screen 3 (New Brew Input).
+    An edit (pencil) icon in the header: Takes you to Screen 5 (Edit Coffee), to rename the coffee or change its roast level.
 
-    Press and hold (Long tap) a recipe: Opens a pop-up window asking: "Are you sure you want to delete?" with a [Yes] and [Cancel] button.
+    Tap the "+" button: A fixed floating button at the bottom right that takes you to Screen 3 (New Brew Input).
 
-    Simple tap on entry: goes into edit screen for that entry (Screen 3 in edit mode).
+    Press and hold (Long tap) a brew card: Opens a pop-up window asking: "Are you sure you want to delete?" with a [Yes] and [Cancel] button.
 
-    Navigation: Android system back gesture returns to Screen 1.
+    Simple tap on a brew card: goes into the edit screen for that entry (Screen 3 in edit mode).
+
+    Navigation: The back chevron (‹) in the header, or the Android system back gesture, returns to Screen 1.
 
 Screen 3: New Brew Input Screen / Edit Screen
 What you type in (Data input)
 
-    Coffee grounds weight (in grams) — Mandatory
+    Each numeric field is a "stepper": a `− value +` control where the value can also be tapped and typed directly (tapping selects the whole value for quick replacement).
 
-    Final liquid weight (in grams) — Mandatory
+    Dose — grounds weight in grams (stepper, decimal).
 
-    Final liquid volume (in milliliters) — Optional
+    Grind size number (e.g., 5.1) (stepper, decimal).
 
-    Grind size number (e.g., 5.1)
+    Brew time in seconds (stepper, whole number).
 
-    Brew time (in seconds)
+    Yield — final liquid weight in grams (stepper, decimal).
 
-    Water temperature (no unit enforced — user enters whatever they use)
+    Ratio — read-only, live-calculated from Dose and Yield as they're entered (e.g., 1:2), displayed as a pill, not user-editable.
 
-    Dispenser tool used? (Yes/No switch)
+    Water temperature (stepper, decimal; no unit enforced — user enters whatever they use).
 
-    Leveler tool used? (Yes/No switch)
+    Final liquid volume in milliliters (stepper, whole number, optional).
 
-    Rating score (Select 1 to 5 stars)
+    Dispenser tool used? (Yes/No switch, labeled DISP).
 
-    Mark as Favorite? (Yes/No switch)
+    Leveler tool used? (Yes/No switch, labeled LEVEL).
+
+    Mark as Favorite? (Yes/No switch, labeled FAV).
+
+    Rating score: tap 1 to 5 stars to set; tapping the currently-set top star clears the rating.
+
+    Notes — free-form multiline tasting notes (optional).
 
 Buttons (Fixed to the bottom of the screen)
 
-    SAVE Button: Saves this brew recipe to the top of your history log and automatically takes you back to Screen 2. (Labeled "SAVE" in both new and edit mode.)
+    SAVE BREW button: Saves this brew to the top of the history log and returns to Screen 2. Disabled until the mandatory fields (Dose, Yield) are filled.
 
-    CANCEL Button: Takes you back to Screen 2 without saving or applying any changes.
+    CANCEL button: Returns to Screen 2 without saving or applying any changes.
 
-    Navigation: Android system back gesture behaves the same as CANCEL.
+    Navigation: The back chevron (‹) in the header, and the Android system back gesture, behave the same as CANCEL.
+
+    Header subtitle: shows the coffee name, plus "· UNSAVED" when creating a new brew (vs. editing an existing one).
 
 Screen 4: Add New Coffee Screen
 What you type in (Data input)
 
-    Coffee Brand / Bean Name — Mandatory
+    Name — coffee brand / bean name (Mandatory).
+
+    Roast level — LIGHT / MEDIUM / DARK segmented single-choice control (optional).
 
 Buttons (Fixed to the bottom of the screen)
 
-    SAVE Button: Saves the new coffee bag to your master list and automatically takes you back to Screen 1.
+    ADD TO INDEX button: Saves the new coffee bag to the master list and returns to Screen 1. Disabled until Name is filled.
 
-    CANCEL Button: Erases what you typed and takes you back to Screen 1 without saving.
+    CANCEL button: Discards what was typed and returns to Screen 1 without saving.
 
-    Navigation: Standard Android back navigation behaves the same as CANCEL.
+    Navigation: The back chevron (‹) in the header, and the Android system back gesture, behave the same as CANCEL.
 
-Screen 5: Settings Screen
+Screen 5: Edit Coffee Screen
+What you type in (Data input)
+
+    Name — coffee brand / bean name (Mandatory).
+
+    Roast level — LIGHT / MEDIUM / DARK segmented single-choice control (optional).
+
+    Pre-filled with the coffee's current name and roast level.
+
+Buttons (Fixed to the bottom of the screen)
+
+    SAVE button: Updates the coffee bag and returns to Screen 2. Disabled until Name is filled.
+
+    CANCEL button: Discards changes and returns to Screen 2.
+
+    Navigation: The back chevron (‹) in the header, and the Android system back gesture, behave the same as CANCEL.
+
+Screen 6: Settings Screen
 What it shows (Data to display)
 
-    Two buttons: "Import Data" and "Export Data".
+    A "DATA" section with two cards: "Import Data" (subtitle: "Restore from a JSON backup") and "Export Data" (subtitle: "Download all brews as JSON").
+
+    An "APPEARANCE" section with a "Dark theme" card (subtitle: "Graphite palette") containing an on/off switch. Defaults to the system theme until explicitly toggled.
 
 How you interact with it (Page navigation & Buttons)
 
-    Tap "Import Data": Lets you choose a previously exported data JSON file and loads it, replacing your current coffees and brew history.
+    Tap "Import Data": Opens a file picker to choose a previously exported JSON file and loads it, replacing the current coffees and brew history. Shows a confirmation/error message when done.
 
-    Tap "Export Data": Lets you save your current coffees and brew history to a JSON file.
+    Tap "Export Data": Opens a file picker to choose where to save a JSON file containing all current coffees and brew history. Shows a confirmation/error message when done.
 
-    Navigation: Android system back gesture returns to Screen 1.
+    Tap "Dark theme" (row or switch): Toggles the app's theme between light and the dark "Graphite" palette.
+
+    Navigation: The back chevron (‹) in the header, or the Android system back gesture, returns to Screen 1.
