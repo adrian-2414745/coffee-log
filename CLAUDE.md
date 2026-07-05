@@ -9,7 +9,8 @@ Android app (`com.example.coffeelog`), built in WSL2, run on a Windows emulator 
 - [docs/connection.md](docs/connection.md) — connecting the phone over Wi-Fi ADB.
 - [docs/architecture.md](docs/architecture.md) — technical design.
 - [docs/tasks.md](docs/tasks.md) — implementation plan.
-- [docs/style.md](docs/style.md) — visual style reference.
+- [docs/style.md](docs/style.md) — visual style reference (aesthetic direction).
+- [docs/design-style.md](docs/design-style.md) — design system: fonts, color tokens & component specs.
 
 ## Dev loop
 - `./dev.sh` — build APK + install + launch on all connected devices.

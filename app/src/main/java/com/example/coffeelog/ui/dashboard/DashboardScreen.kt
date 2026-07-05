@@ -30,8 +30,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -124,8 +127,17 @@ private fun CoffeeRow(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            val lowEmphasis = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
             Text(
-                text = row.name,
+                text = buildAnnotatedString {
+                    append(row.name)
+                    row.roastLevel?.takeIf { it.isNotBlank() }?.let { roast ->
+                        append(" ")
+                        withStyle(SpanStyle(color = lowEmphasis, fontWeight = FontWeight.W400)) {
+                            append("(${roast.lowercase()})")
+                        }
+                    }
+                },
                 fontFamily = Archivo,
                 fontWeight = FontWeight.W700,
                 fontSize = 15.sp,
