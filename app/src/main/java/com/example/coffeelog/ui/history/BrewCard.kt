@@ -29,8 +29,8 @@ import com.example.coffeelog.util.DateFormat
 import com.example.coffeelog.util.MetricFormat
 import com.example.coffeelog.util.RatioFormatter
 
-private fun optional(label: String, value: String, isNull: Boolean, unit: String? = null): MetricCell =
-    MetricCell(label, value, unit = if (isNull) null else unit, muted = isNull)
+private fun optional(label: String, value: String, isNull: Boolean): MetricCell =
+    MetricCell(label, value, muted = isNull)
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -52,14 +52,14 @@ fun BrewCard(
     ) {
         MetricGrid(
             cells = listOf(
-                MetricCell("DOSE", MetricFormat.weight(brew.groundsWeightG), unit = "g"),
+                MetricCell("DOSE", MetricFormat.weight(brew.groundsWeightG)),
                 optional("GRIND", MetricFormat.grind(brew.grindSize), brew.grindSize == null),
-                optional("TIME", MetricFormat.seconds(brew.brewTimeSec), brew.brewTimeSec == null, unit = "s"),
-                optional("TEMP", MetricFormat.plain(brew.waterTemp), brew.waterTemp == null, unit = "°"),
-                MetricCell("YIELD", MetricFormat.weight(brew.liquidWeightG), unit = "g"),
-                optional("VOL", MetricFormat.plain(brew.liquidVolumeMl), brew.liquidVolumeMl == null, unit = "ml"),
+                optional("TIME", MetricFormat.seconds(brew.brewTimeSec), brew.brewTimeSec == null),
+                MetricCell("YIELD", MetricFormat.weight(brew.liquidWeightG)),
+                optional("TEMP", MetricFormat.plain(brew.waterTemp), brew.waterTemp == null),
+                optional("VOL", MetricFormat.plain(brew.liquidVolumeMl), brew.liquidVolumeMl == null),
                 MetricCell("RATIO", RatioFormatter.format(brew.groundsWeightG, brew.liquidWeightG), accent = true),
-                optional("SCORE", MetricFormat.score(brew.rating), brew.rating == null, unit = "/5"),
+                optional("SCORE", MetricFormat.score(brew.rating), brew.rating == null),
             ),
         )
         Row(
