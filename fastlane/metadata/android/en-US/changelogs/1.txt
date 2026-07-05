@@ -1,0 +1,9 @@
+First release.
+
+* Coffee index with per-coffee brew history
+* Log dose, yield, grind, time, temperature, volume, tools, rating and notes
+* Automatic brew-ratio calculation
+* Favourite brews with dashboard summaries
+* Light and dark themes
+* JSON export and import
+* Fully offline, no permissions required

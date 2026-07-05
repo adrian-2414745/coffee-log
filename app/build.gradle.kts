@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.coffeelog"
+    namespace = "io.github.adrian2414745.coffeelog"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.coffeelog"
+        applicationId = "io.github.adrian2414745.coffeelog"
         minSdk = 34
         targetSdk = 35
         versionCode = 1

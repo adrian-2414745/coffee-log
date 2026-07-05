@@ -28,7 +28,7 @@ between WSL and Windows, so the adb bridge needs no port juggling and **no usbip
 ### WSL2 — the build side (`~/ws/coffee-log`)
 - Android SDK at `~/Android/Sdk`: cmdline-tools, platform-tools r37, build-tools 35, platform android-35
 - JDK 21 (via sdkman), Gradle 8.11.1 (via sdkman)
-- Minimal Kotlin app (`com.example.coffeelog`) — builds an ~813 KB debug APK in ~20s
+- Minimal Kotlin app (`io.github.adrian2414745.coffeelog`) — builds an ~813 KB debug APK in ~20s
 - Env + adb-bridge vars persisted in `~/.bashrc` under marker `# --- ANDROID SDK (Claude setup) ---`:
   ```bash
   export ANDROID_HOME="$HOME/Android/Sdk"
@@ -58,7 +58,7 @@ Or manually:
 ```bash
 ./gradlew assembleDebug
 adb -s emulator-5554 install -r app/build/outputs/apk/debug/app-debug.apk
-adb -s emulator-5554 shell monkey -p com.example.coffeelog -c android.intent.category.LAUNCHER 1
+adb -s emulator-5554 shell monkey -p io.github.adrian2414745.coffeelog -c android.intent.category.LAUNCHER 1
 ```
 
 Relaunch the emulator later (from Windows):

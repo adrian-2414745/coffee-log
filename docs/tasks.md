@@ -11,7 +11,7 @@ Legend: `[ ]` open · `[x]` done
 
 *Goal: an installable app that launches to an empty dashboard shell.*
 
-- [x] 1.1 Create the Android project: Kotlin, Compose (Material 3), single module `:app`, package `com.example.coffeelog`, minSdk 34, Kotlin DSL + version catalog.
+- [x] 1.1 Create the Android project: Kotlin, Compose (Material 3), single module `:app`, package `io.github.adrian2414745.coffeelog`, minSdk 34, Kotlin DSL + version catalog.
 - [x] 1.2 Add dependencies: Compose BOM, navigation-compose, Room (+ ksp), kotlinx-serialization-json, lifecycle-viewmodel-compose, datastore-preferences.
 - [x] 1.3 `ui/theme/`: both palettes from the design canvas (B light, A Graphite dark) as Material 3 color schemes per architecture.md §4; bundle Archivo + JetBrains Mono in `res/font/` and map them in `Type.kt`. Theme follows system dark mode for now (toggle arrives in Story 8).
 - [x] 1.4 `CoffeeLogApp` (Application) with empty `AppContainer`; `MainActivity` setting Compose content wrapped in `CoffeeLogTheme`.

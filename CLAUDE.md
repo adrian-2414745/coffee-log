@@ -1,6 +1,6 @@
 # Coffee Log
 
-Android app (`com.example.coffeelog`), built in WSL2, run on a Windows emulator and a real phone.
+Android app (`io.github.adrian2414745.coffeelog`), built in WSL2, run on a Windows emulator and a real phone.
 
 ## Docs
 - [docs/PRD.md](docs/PRD.md) — product requirements.

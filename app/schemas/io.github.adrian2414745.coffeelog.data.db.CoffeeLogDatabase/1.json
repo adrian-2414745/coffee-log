@@ -1,0 +1,178 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d37e338bca73daa3bd8e6abf6ceeec23",
+    "entities": [
+      {
+        "tableName": "coffees",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `roastLevel` TEXT, `createdAt` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roastLevel",
+            "columnName": "roastLevel",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "brews",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `coffeeId` INTEGER NOT NULL, `groundsWeightG` REAL NOT NULL, `liquidWeightG` REAL NOT NULL, `liquidVolumeMl` REAL, `grindSize` REAL, `brewTimeSec` INTEGER, `waterTemp` REAL, `usedDispenser` INTEGER NOT NULL, `usedLeveler` INTEGER NOT NULL, `rating` INTEGER, `isFavorite` INTEGER NOT NULL, `favoritedAt` INTEGER, `notes` TEXT, `createdAt` INTEGER NOT NULL, FOREIGN KEY(`coffeeId`) REFERENCES `coffees`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coffeeId",
+            "columnName": "coffeeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "groundsWeightG",
+            "columnName": "groundsWeightG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "liquidWeightG",
+            "columnName": "liquidWeightG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "liquidVolumeMl",
+            "columnName": "liquidVolumeMl",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "grindSize",
+            "columnName": "grindSize",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "brewTimeSec",
+            "columnName": "brewTimeSec",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "waterTemp",
+            "columnName": "waterTemp",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "usedDispenser",
+            "columnName": "usedDispenser",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usedLeveler",
+            "columnName": "usedLeveler",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rating",
+            "columnName": "rating",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isFavorite",
+            "columnName": "isFavorite",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "favoritedAt",
+            "columnName": "favoritedAt",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_brews_coffeeId",
+            "unique": false,
+            "columnNames": [
+              "coffeeId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_brews_coffeeId` ON `${TABLE_NAME}` (`coffeeId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "coffees",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "coffeeId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd37e338bca73daa3bd8e6abf6ceeec23')"
+    ]
+  }
+}

@@ -9,7 +9,7 @@ export ANDROID_SDK_ROOT="$ANDROID_HOME"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export ANDROID_ADB_SERVER_ADDRESS="${ANDROID_ADB_SERVER_ADDRESS:-127.0.0.1}"
 
-APP_ID="com.example.coffeelog"
+APP_ID="io.github.adrian2414745.coffeelog"
 cd "$(dirname "$0")"
 
 echo ">> building debug APK..."

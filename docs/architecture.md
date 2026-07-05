@@ -24,7 +24,7 @@ Single Gradle module (`:app`). The app is small enough that multi-module structu
 ## 2. Package structure
 
 ```
-com.example.coffeelog/
+io.github.adrian2414745.coffeelog/
 ├── CoffeeLogApp.kt            # Application; owns AppContainer
 ├── MainActivity.kt            # Single activity, sets Compose content
 ├── data/

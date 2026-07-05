@@ -3,27 +3,13 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Coffee cup body -->
+    <!-- Cream ring (annulus); the espresso background shows through the hole as the inner brown center -->
     <path
-        android:fillColor="#E9B10A"
-        android:pathData="M38,42 H68 V60 A15,15 0 0,1 53,75 A15,15 0 0,1 38,60 Z" />
-    <!-- Handle -->
+        android:fillColor="#F2E8D4"
+        android:fillType="evenOdd"
+        android:pathData="M21,54 a33,33 0 1,0 66,0 a33,33 0 1,0 -66,0 Z M29.5,54 a24.5,24.5 0 1,0 49,0 a24.5,24.5 0 1,0 -49,0 Z" />
+    <!-- Golden-crema star in the center -->
     <path
-        android:strokeColor="#E9B10A"
-        android:strokeWidth="4"
-        android:fillColor="#00000000"
-        android:pathData="M68,46 A9,9 0 0,1 68,64" />
-    <!-- Steam -->
-    <path
-        android:strokeColor="#E9B10A"
-        android:strokeWidth="3.5"
-        android:strokeLineCap="round"
-        android:fillColor="#00000000"
-        android:pathData="M47,26 q4,4 0,8" />
-    <path
-        android:strokeColor="#E9B10A"
-        android:strokeWidth="3.5"
-        android:strokeLineCap="round"
-        android:fillColor="#00000000"
-        android:pathData="M59,26 q4,4 0,8" />
+        android:fillColor="#ECB13E"
+        android:pathData="M54,32.5 L59.055,47.042 L74.448,47.356 L62.179,56.658 L66.637,71.394 L54,62.6 L41.363,71.394 L45.821,56.658 L33.552,47.356 L48.945,47.042 Z" />
 </vector>

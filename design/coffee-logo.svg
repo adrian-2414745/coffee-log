@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <!-- Coffee Log logo: espresso rings + latte cream band + golden-crema star -->
+  <defs>
+    <!-- punches a transparent circular hole in the middle of the ring stack -->
+    <mask id="centerHole">
+      <rect width="1024" height="1024" fill="white"/>
+      <circle cx="512" cy="512" r="228" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- concentric rings (outer dark brown / cream / inner dark brown) -->
+  <g mask="url(#centerHole)">
+    <circle cx="512" cy="512" r="470" fill="#3B2416"/>
+    <circle cx="512" cy="512" r="356" fill="#F2E8D4"/>
+    <circle cx="512" cy="512" r="286" fill="#3B2416"/>
+  </g>
+
+  <!-- golden star in the transparent center -->
+  <path fill="#ECB13E" d="M512,322 L556.67,450.51 L692.70,453.29 L584.28,535.49 L623.68,665.71 L512,588 L400.32,665.71 L439.72,535.49 L331.30,453.29 L467.33,450.51 Z"/>
+</svg>

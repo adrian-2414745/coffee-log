@@ -1,0 +1,22 @@
+Coffee Log is a simple brewing journal that remembers your exact recipes, so you never have to repeat the frustrating process of "dialing in" a bag of beans once you have found the perfect cup.
+
+Keep an index of every coffee you own and log each brewing attempt against it. For any brew you can record:
+
+* Dose (grounds weight) and final liquid yield
+* Grind setting, brew time and water temperature
+* Liquid volume and a 1-5 star rating
+* Whether you used a dispenser or leveler tool
+* Free-form tasting notes
+
+The brewing ratio (e.g. 1:2) is calculated automatically from your dose and yield as you type. Mark your best brews as favourites, and the dashboard surfaces the key numbers of your most recent favourite for each coffee at a glance.
+
+Your data stays on your device. There is no account, no network access and no tracking of any kind. You can export your whole journal to a JSON file at any time and import it back later, so you always own your data.
+
+Features:
+
+* Per-coffee history log, newest brew first
+* Automatic brew-ratio calculation
+* Favourites with dashboard summaries
+* Light and dark (Graphite) themes
+* Full JSON export and import
+* Completely offline, no permissions required
