@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+</helmet>
+
+<!-- ============ HEADER ============ -->
+<div style="position:absolute;left:80px;top:36px;width:900px;font:900 30px Archivo,system-ui;letter-spacing:-.015em;color:#211c16">COFFEE BREWING JOURNAL</div>
+<div style="position:absolute;left:80px;top:78px;width:820px;font:400 13px 'JetBrains Mono',monospace;line-height:1.5;color:rgba(33,28,22,.62)">Two functionalist directions kept — the light original (B) and a dark Graphite variant (A). Same screens, same seed data. History rows now read DISP / LEVEL / FAV as non-editable status tags. All four screens now shown for each palette — note flags are editable toggles on New Brew (03) but read-only tags on History (02). Pick a palette and I'll wire it into a working prototype.</div>
+
+<div style="position:absolute;left:1010px;top:236px;width:220px;background:#fef4a8;padding:13px 14px;font:12px/1.45 system-ui;color:#403a16;box-shadow:0 2px 5px rgba(0,0,0,.18);transform:rotate(-1.4deg)">On New Brew (03), RATIO is auto-calculated (read-only), flags are editable toggles, and Save sits beside a quarter-width Cancel.</div>
+
+<!-- ================================================================= -->
+<!-- A — FUNCTIONALIST / GRAPHITE (DARK WARM, AMBER)                    -->
+<!-- ================================================================= -->
+<div style="position:absolute;left:80px;top:150px;width:380px;font:700 14px Archivo,system-ui;letter-spacing:.16em;text-transform:uppercase;color:#211c16">A — Graphite</div>
+<div style="position:absolute;left:80px;top:174px;width:360px;font:400 11px 'JetBrains Mono',monospace;color:rgba(33,28,22,.55)">Dark warm. Amber accent.</div>
+
+<!-- A · DASHBOARD -->
+<div style="position:absolute;left:80px;top:222px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">01 · Dashboard</div>
+  <div style="position:relative;width:380px;height:760px;background:#201E1B;overflow:hidden;border:1.5px solid #3A3631;box-shadow:0 2px 9px rgba(0,0,0,.35)">
+    <div style="padding:22px 20px 16px;display:flex;justify-content:space-between;align-items:center"><div style="font:800 22px Archivo;color:#EDE7DB">Coffee Index</div><div style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(237,231,219,.2);display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EDE7DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div></div>
+
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:13px">
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#EDE7DB">Brazil Daterra — Sweet</span><span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span></div>
+
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#EDE7DB">Colombia El Paraíso</span><span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:12px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45)">
+          <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">18.0<span style="font-size:9px">g</span></div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">5.4</div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">28<span style="font-size:9px">s</span></div></div>
+          <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">92°</div></div>
+        </div>
+      </div>
+
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#EDE7DB">Decaf Sumatra — Mandheling</span><span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span></div>
+
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#EDE7DB">Ethiopia Guji</span><span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:12px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45)">
+          <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">18.0<span style="font-size:9px">g</span></div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">5.1</div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">28<span style="font-size:9px">s</span></div></div>
+          <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.45)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:3px">93°</div></div>
+        </div>
+      </div>
+
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#EDE7DB">Kenya Nyeri AA</span><span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span></div>
+    </div>
+
+    <div style="position:absolute;right:20px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:300 30px Archivo;color:#201E1B;box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)">+</div>
+  </div>
+</div>
+
+<!-- A · HISTORY -->
+<div style="position:absolute;left:80px;top:1052px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">02 · History Log</div>
+  <div style="position:relative;width:380px;height:760px;background:#201E1B;overflow:hidden;border:1.5px solid #3A3631;box-shadow:0 2px 9px rgba(0,0,0,.35)">
+    <div style="padding:20px 20px 16px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#EDE7DB">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#EDE7DB;line-height:1.1">Ethiopia Guji</div></div>
+    </div>
+
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:13px">
+      <!-- panel 1 -->
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 15px">
+        <div style="background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45)">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(237,231,219,.1)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">18.0<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">5.1</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">28<span style="font-size:9px">s</span></div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">93°</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">YIELD</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">36.2<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">VOL</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">38<span style="font-size:9px">ml</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">RATIO</div><div style="font:500 14px 'JetBrains Mono';color:#E9B10A;margin-top:2px">1:2.0</div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">SCORE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">4<span style="font-size:10px;color:rgba(237,231,219,.4)">/5</span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:11px">
+          <div style="display:flex;gap:7px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;background:rgba(233,177,10,.13);border:1px solid rgba(233,177,10,.42);font:700 8px Archivo;letter-spacing:.09em;color:#E9B10A">DISP</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;background:rgba(233,177,10,.13);border:1px solid rgba(233,177,10,.42);font:700 8px Archivo;letter-spacing:.09em;color:#E9B10A">LEVEL</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:4px;background:rgba(233,177,10,.13);border:1px solid rgba(233,177,10,.42);font:700 8px Archivo;letter-spacing:.09em;color:#E9B10A">★ FAV</span>
+          </div>
+          <span style="font:500 11px 'JetBrains Mono';color:rgba(237,231,219,.4)">27 JUN 2026</span>
+        </div>
+      </div>
+
+      <!-- panel 2 -->
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 15px">
+        <div style="background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45)">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(237,231,219,.1)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">18.0<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">4.8</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">30<span style="font-size:9px">s</span></div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">94°</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">YIELD</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">40.1<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">VOL</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">42<span style="font-size:9px">ml</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">RATIO</div><div style="font:500 14px 'JetBrains Mono';color:#E9B10A;margin-top:2px">1:2.2</div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">SCORE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">3<span style="font-size:10px;color:rgba(237,231,219,.4)">/5</span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:11px">
+          <div style="display:flex;gap:7px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;background:rgba(233,177,10,.13);border:1px solid rgba(233,177,10,.42);font:700 8px Archivo;letter-spacing:.09em;color:#E9B10A">DISP</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;border:1px solid rgba(237,231,219,.16);font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.28)">LEVEL</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:4px;border:1px solid rgba(237,231,219,.16);font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.28)">★ FAV</span>
+          </div>
+          <span style="font:500 11px 'JetBrains Mono';color:rgba(237,231,219,.4)">24 JUN 2026</span>
+        </div>
+      </div>
+
+      <!-- panel 3 -->
+      <div style="background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:14px 15px">
+        <div style="background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45)">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(237,231,219,.1)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">17.5<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">5.4</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">26<span style="font-size:9px">s</span></div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">92°</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">YIELD</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">34.0<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">VOL</div><div style="font:500 14px 'JetBrains Mono';color:rgba(237,231,219,.4);margin-top:2px">—</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(237,231,219,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">RATIO</div><div style="font:500 14px 'JetBrains Mono';color:#E9B10A;margin-top:2px">1:1.9</div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(237,231,219,.45)">SCORE</div><div style="font:500 14px 'JetBrains Mono';color:#EDE7DB;margin-top:2px">5<span style="font-size:10px;color:rgba(237,231,219,.4)">/5</span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:11px">
+          <div style="display:flex;gap:7px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;border:1px solid rgba(237,231,219,.16);font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.28)">DISP</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;border:1px solid rgba(237,231,219,.16);font:700 8px Archivo;letter-spacing:.09em;color:rgba(237,231,219,.28)">LEVEL</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:4px;background:rgba(233,177,10,.13);border:1px solid rgba(233,177,10,.42);font:700 8px Archivo;letter-spacing:.09em;color:#E9B10A">★ FAV</span>
+          </div>
+          <span style="font:500 11px 'JetBrains Mono';color:rgba(237,231,219,.4)">21 JUN 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;right:20px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:300 30px Archivo;color:#201E1B;box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)">+</div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- B — FUNCTIONALIST (LIGHT, ORIGINAL)                                -->
+<!-- ================================================================= -->
+<div style="position:absolute;left:540px;top:150px;width:380px;font:700 14px Archivo,system-ui;letter-spacing:.16em;text-transform:uppercase;color:#211c16">B — Functionalist</div>
+<div style="position:absolute;left:540px;top:174px;width:360px;font:400 11px 'JetBrains Mono',monospace;color:rgba(33,28,22,.55)">Braun-quiet. Molded panels, light.</div>
+
+<!-- B · DASHBOARD -->
+<div style="position:absolute;left:540px;top:222px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">01 · Dashboard</div>
+  <div style="position:relative;width:380px;height:760px;background:#EFEDE7;overflow:hidden;border:1.5px solid #D6D2C7;box-shadow:0 2px 7px rgba(0,0,0,.12)">
+    <div style="padding:22px 20px 16px;display:flex;justify-content:space-between;align-items:center"><div style="font:800 22px Archivo;color:#2B2A27">Coffee Index</div><div style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(43,42,39,.2);display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B2A27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div></div>
+
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:13px">
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#2B2A27">Brazil Daterra — Sweet</span><span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span></div>
+
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#2B2A27">Colombia El Paraíso</span><span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:12px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08)">
+          <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">18.0<span style="font-size:9px">g</span></div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">5.4</div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">28<span style="font-size:9px">s</span></div></div>
+          <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">92°</div></div>
+        </div>
+      </div>
+
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#2B2A27">Decaf Sumatra — Mandheling</span><span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span></div>
+
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#2B2A27">Ethiopia Guji</span><span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:12px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08)">
+          <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">18.0<span style="font-size:9px">g</span></div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">5.1</div></div>
+          <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">28<span style="font-size:9px">s</span></div></div>
+          <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.5)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:3px">93°</div></div>
+        </div>
+      </div>
+
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font:700 15px Archivo;color:#2B2A27">Kenya Nyeri AA</span><span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span></div>
+    </div>
+
+    <div style="position:absolute;right:20px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:300 30px Archivo;color:#2B2A27;box-shadow:0 3px 7px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.55)">+</div>
+  </div>
+</div>
+
+<!-- B · HISTORY -->
+<div style="position:absolute;left:540px;top:1052px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">02 · History Log</div>
+  <div style="position:relative;width:380px;height:760px;background:#EFEDE7;overflow:hidden;border:1.5px solid #D6D2C7;box-shadow:0 2px 7px rgba(0,0,0,.12)">
+    <div style="padding:20px 20px 16px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#2B2A27">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#2B2A27;line-height:1.1">Ethiopia Guji</div></div>
+    </div>
+
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:13px">
+      <!-- panel 1 -->
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 15px">
+        <div style="background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08)">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(43,42,39,.1)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">18.0<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">5.1</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">28<span style="font-size:9px">s</span></div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">93°</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">YIELD</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">36.2<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">VOL</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">38<span style="font-size:9px">ml</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">RATIO</div><div style="font:500 14px 'JetBrains Mono';color:#AE3B36;margin-top:2px">1:2.0</div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">SCORE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">4<span style="font-size:10px;color:rgba(43,42,39,.45)">/5</span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:11px">
+          <div style="display:flex;gap:7px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;background:rgba(174,59,54,.1);border:1px solid rgba(174,59,54,.42);font:700 8px Archivo;letter-spacing:.09em;color:#AE3B36">DISP</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;background:rgba(174,59,54,.1);border:1px solid rgba(174,59,54,.42);font:700 8px Archivo;letter-spacing:.09em;color:#AE3B36">LEVEL</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:4px;background:rgba(174,59,54,.1);border:1px solid rgba(174,59,54,.42);font:700 8px Archivo;letter-spacing:.09em;color:#AE3B36">★ FAV</span>
+          </div>
+          <span style="font:500 11px 'JetBrains Mono';color:rgba(43,42,39,.45)">27 JUN 2026</span>
+        </div>
+      </div>
+
+      <!-- panel 2 -->
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 15px">
+        <div style="background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08)">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(43,42,39,.1)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">18.0<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">4.8</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">30<span style="font-size:9px">s</span></div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">94°</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">YIELD</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">40.1<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">VOL</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">42<span style="font-size:9px">ml</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">RATIO</div><div style="font:500 14px 'JetBrains Mono';color:#AE3B36;margin-top:2px">1:2.2</div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">SCORE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">3<span style="font-size:10px;color:rgba(43,42,39,.45)">/5</span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:11px">
+          <div style="display:flex;gap:7px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;background:rgba(174,59,54,.1);border:1px solid rgba(174,59,54,.42);font:700 8px Archivo;letter-spacing:.09em;color:#AE3B36">DISP</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;border:1px solid rgba(43,42,39,.18);font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.32)">LEVEL</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:4px;border:1px solid rgba(43,42,39,.18);font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.32)">★ FAV</span>
+          </div>
+          <span style="font:500 11px 'JetBrains Mono';color:rgba(43,42,39,.45)">24 JUN 2026</span>
+        </div>
+      </div>
+
+      <!-- panel 3 -->
+      <div style="background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:14px 15px">
+        <div style="background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08)">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(43,42,39,.1)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">DOSE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">17.5<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">GRIND</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">5.4</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">TIME</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">26<span style="font-size:9px">s</span></div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">TEMP</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">92°</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">YIELD</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">34.0<span style="font-size:9px">g</span></div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">VOL</div><div style="font:500 14px 'JetBrains Mono';color:rgba(43,42,39,.4);margin-top:2px">—</div></div>
+            <div style="padding:8px 10px;border-right:1px solid rgba(43,42,39,.1)"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">RATIO</div><div style="font:500 14px 'JetBrains Mono';color:#AE3B36;margin-top:2px">1:1.9</div></div>
+            <div style="padding:8px 10px"><div style="font:700 8px Archivo;letter-spacing:.08em;color:rgba(43,42,39,.5)">SCORE</div><div style="font:500 14px 'JetBrains Mono';color:#2B2A27;margin-top:2px">5<span style="font-size:10px;color:rgba(43,42,39,.45)">/5</span></div></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:11px">
+          <div style="display:flex;gap:7px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;border:1px solid rgba(43,42,39,.18);font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.32)">DISP</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:4px;border:1px solid rgba(43,42,39,.18);font:700 8px Archivo;letter-spacing:.09em;color:rgba(43,42,39,.32)">LEVEL</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:4px;background:rgba(174,59,54,.1);border:1px solid rgba(174,59,54,.42);font:700 8px Archivo;letter-spacing:.09em;color:#AE3B36">★ FAV</span>
+          </div>
+          <span style="font:500 11px 'JetBrains Mono';color:rgba(43,42,39,.45)">21 JUN 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;right:20px;bottom:22px;width:56px;height:56px;border-radius:50%;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:300 30px Archivo;color:#2B2A27;box-shadow:0 3px 7px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.55)">+</div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- A · 03 NEW BREW                                                    -->
+<!-- ================================================================= -->
+<div style="position:absolute;left:80px;top:1882px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">03 · New Brew</div>
+  <div style="position:relative;width:380px;height:760px;background:#201E1B;overflow:hidden;border:1.5px solid #3A3631;box-shadow:0 2px 9px rgba(0,0,0,.35);display:flex;flex-direction:column">
+    <div style="padding:20px 20px 14px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#EDE7DB">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#EDE7DB;line-height:1.1">New Brew</div><div style="font:500 10px 'JetBrains Mono';color:rgba(237,231,219,.45);letter-spacing:.08em;margin-top:2px">ETHIOPIA GUJI · UNSAVED</div></div>
+    </div>
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:0;flex:1;min-height:0">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">DOSE</span><div style="display:flex;align-items:center;width:150px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#EDE7DB;border-left:1px solid rgba(237,231,219,.08);border-right:1px solid rgba(237,231,219,.08)">18.0<span style="font-size:9px">g</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">GRIND</span><div style="display:flex;align-items:center;width:150px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#EDE7DB;border-left:1px solid rgba(237,231,219,.08);border-right:1px solid rgba(237,231,219,.08)">5.1</div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">TIME</span><div style="display:flex;align-items:center;width:150px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#EDE7DB;border-left:1px solid rgba(237,231,219,.08);border-right:1px solid rgba(237,231,219,.08)">28<span style="font-size:9px">s</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">YIELD</span><div style="display:flex;align-items:center;width:150px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#EDE7DB;border-left:1px solid rgba(237,231,219,.08);border-right:1px solid rgba(237,231,219,.08)">36.2<span style="font-size:9px">g</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">RATIO</span><div style="display: flex; align-items: center; justify-content: space-between; width: 126px; background: #1B1916; border-radius: 5px; border: 1px dashed rgba(237,231,219,.16); padding: 7px 12px; height: 20px"><span style="font:500 14px 'JetBrains Mono';color:#E9B10A">1:2.0</span><span style="font:700 7px Archivo;letter-spacing:.13em;color:rgba(237,231,219,.35)">AUTO</span></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">TEMP</span><div style="display:flex;align-items:center;width:150px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#EDE7DB;border-left:1px solid rgba(237,231,219,.08);border-right:1px solid rgba(237,231,219,.08)">93°</div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">VOL</span><div style="display:flex;align-items:center;width:150px;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#EDE7DB;border-left:1px solid rgba(237,231,219,.08);border-right:1px solid rgba(237,231,219,.08)">38<span style="font-size:9px">ml</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(237,231,219,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">DISP</span><div style="width:150px;display:flex;justify-content:flex-end"><div style="width:32px;height:18px;border-radius:999px;background:#E9B10A;position:relative;box-shadow:inset 0 1px 2px rgba(0,0,0,.25);cursor:pointer"><div style="position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#201E1B"></div></div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">LEVEL</span><div style="width:150px;display:flex;justify-content:flex-end"><div style="width:32px;height:18px;border-radius:999px;background:#E9B10A;position:relative;box-shadow:inset 0 1px 2px rgba(0,0,0,.25);cursor:pointer"><div style="position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#201E1B"></div></div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">FAV</span><div style="width:150px;display:flex;justify-content:flex-end"><div style="width:32px;height:18px;border-radius:999px;background:#E9B10A;position:relative;box-shadow:inset 0 1px 2px rgba(0,0,0,.25);cursor:pointer"><div style="position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#201E1B"></div></div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(237,231,219,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">SCORE</span><div style="width:150px;display:flex;justify-content:flex-end;gap:5px;font:400 17px Archivo;color:#E9B10A">★★★★<span style="color:rgba(237,231,219,.28)">★</span></div></div>
+      <div style="display:flex;flex-direction:column;gap:7px;flex:1;min-height:0;padding-top:12px"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85)">NOTES</span><div style="flex: 1; background: #211E1A; border-radius: 5px; box-shadow: inset 0 1px 3px rgba(0,0,0,.45); padding: 9px 12px; font: 400 12px 'JetBrains Mono'; color: rgba(237,231,219,.7); line-height: 1.55; position: static">Juicy, bergamot top, tea-like finish. Pulled a touch fast — coarsen a notch next time.<span style="display:inline-block;width:1px;height:13px;background:#E9B10A;vertical-align:-2px;margin-left:1px"></span></div></div>
+    </div>
+    <div style="padding:12px 16px 16px;display:flex;gap:10px">
+      <div style="flex:3;height:46px;border-radius:6px;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:800 13px Archivo;letter-spacing:.07em;color:#201E1B;box-shadow:0 2px 6px rgba(0,0,0,.4);cursor:pointer">SAVE BREW</div>
+      <div style="flex:1;height:46px;border-radius:6px;background:transparent;border:1px solid rgba(237,231,219,.22);display:flex;align-items:center;justify-content:center;font:800 12px Archivo;letter-spacing:.05em;color:rgba(237,231,219,.6);cursor:pointer">CANCEL</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- A · 04 ADD COFFEE                                                  -->
+<!-- ================================================================= -->
+<div style="position:absolute;left:80px;top:2712px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">04 · Add Coffee</div>
+  <div style="position:relative;width:380px;height:760px;background:#201E1B;overflow:hidden;border:1.5px solid #3A3631;box-shadow:0 2px 9px rgba(0,0,0,.35);display:flex;flex-direction:column">
+    <div style="padding:20px 20px 14px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#EDE7DB">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#EDE7DB;line-height:1.1">Add Coffee</div></div>
+    </div>
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:16px;flex:1;min-height:0">
+      <div><div style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85);margin-bottom:7px">NAME</div><div style="background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);padding:13px 14px;font:700 15px Archivo;color:#EDE7DB">Ethiopia Guji</div></div>
+      <div><div style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(237,231,219,.85);margin-bottom:7px">ROAST LEVEL</div><div style="display:flex;background:#211E1A;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);padding:3px;gap:3px"><div style="flex:1;text-align:center;padding:11px 0;border-radius:3px;font:700 11px Archivo;letter-spacing:.06em;color:rgba(237,231,219,.5);cursor:pointer">LIGHT</div><div style="flex:1;text-align:center;padding:11px 0;border-radius:3px;background:#E9B10A;font:700 11px Archivo;letter-spacing:.06em;color:#201E1B">MEDIUM</div><div style="flex:1;text-align:center;padding:11px 0;border-radius:3px;font:700 11px Archivo;letter-spacing:.06em;color:rgba(237,231,219,.5);cursor:pointer">DARK</div></div></div>
+    </div>
+    <div style="padding:12px 16px 16px;display:flex;gap:10px">
+      <div style="flex:3;height:46px;border-radius:6px;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:800 13px Archivo;letter-spacing:.07em;color:#201E1B;box-shadow:0 2px 6px rgba(0,0,0,.4);cursor:pointer">ADD TO INDEX</div>
+      <div style="flex:1;height:46px;border-radius:6px;background:transparent;border:1px solid rgba(237,231,219,.22);display:flex;align-items:center;justify-content:center;font:800 12px Archivo;letter-spacing:.05em;color:rgba(237,231,219,.6);cursor:pointer">CANCEL</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- B · 03 NEW BREW                                                    -->
+<!-- ================================================================= -->
+<div style="position:absolute;left:540px;top:1882px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">03 · New Brew</div>
+  <div style="position:relative;width:380px;height:760px;background:#EFEDE7;overflow:hidden;border:1.5px solid #D6D2C7;box-shadow:0 2px 7px rgba(0,0,0,.12);display:flex;flex-direction:column">
+    <div style="padding:20px 20px 14px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#2B2A27">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#2B2A27;line-height:1.1">New Brew</div><div style="font:500 10px 'JetBrains Mono';color:rgba(43,42,39,.5);letter-spacing:.08em;margin-top:2px">ETHIOPIA GUJI · UNSAVED</div></div>
+    </div>
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:0;flex:1;min-height:0">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">DOSE</span><div style="display:flex;align-items:center;width:150px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#2B2A27;border-left:1px solid rgba(43,42,39,.1);border-right:1px solid rgba(43,42,39,.1)">18.0<span style="font-size:9px">g</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">GRIND</span><div style="display:flex;align-items:center;width:150px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#2B2A27;border-left:1px solid rgba(43,42,39,.1);border-right:1px solid rgba(43,42,39,.1)">5.1</div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">TIME</span><div style="display:flex;align-items:center;width:150px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#2B2A27;border-left:1px solid rgba(43,42,39,.1);border-right:1px solid rgba(43,42,39,.1)">28<span style="font-size:9px">s</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">YIELD</span><div style="display:flex;align-items:center;width:150px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#2B2A27;border-left:1px solid rgba(43,42,39,.1);border-right:1px solid rgba(43,42,39,.1)">36.2<span style="font-size:9px">g</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">RATIO</span><div style="display: flex; align-items: center; justify-content: space-between; width: 123px; background: #E3DFD4; border-radius: 5px; border: 1px dashed rgba(43,42,39,.22); padding: 7px 12px; height: 17px"><span style="font:500 14px 'JetBrains Mono';color:#AE3B36">1:2.0</span><span style="font:700 7px Archivo;letter-spacing:.13em;color:rgba(43,42,39,.4)">AUTO</span></div></div><div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">TEMP</span><div style="display:flex;align-items:center;width:150px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#2B2A27;border-left:1px solid rgba(43,42,39,.1);border-right:1px solid rgba(43,42,39,.1)">93°</div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">VOL</span><div style="display:flex;align-items:center;width:150px;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);overflow:hidden"><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">−</div><div style="flex:1;text-align:center;font:500 14px 'JetBrains Mono';color:#2B2A27;border-left:1px solid rgba(43,42,39,.1);border-right:1px solid rgba(43,42,39,.1)">38<span style="font-size:9px">ml</span></div><div style="width:34px;text-align:center;font:400 17px Archivo;color:rgba(43,42,39,.5);padding:6px 0;cursor:pointer">+</div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">DISP</span><div style="width:150px;display:flex;justify-content:flex-end"><div style="width:32px;height:18px;border-radius:999px;background:#AE3B36;position:relative;box-shadow:inset 0 1px 2px rgba(0,0,0,.15);cursor:pointer"><div style="position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#FAF9F5"></div></div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">LEVEL</span><div style="width:150px;display:flex;justify-content:flex-end"><div style="width:32px;height:18px;border-radius:999px;background:#AE3B36;position:relative;box-shadow:inset 0 1px 2px rgba(0,0,0,.15);cursor:pointer"><div style="position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#FAF9F5"></div></div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">FAV</span><div style="width:150px;display:flex;justify-content:flex-end"><div style="width:32px;height:18px;border-radius:999px;background:#AE3B36;position:relative;box-shadow:inset 0 1px 2px rgba(0,0,0,.15);cursor:pointer"><div style="position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#FAF9F5"></div></div></div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(43,42,39,.12)"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">SCORE</span><div style="width:150px;display:flex;justify-content:flex-end;gap:5px;font:400 17px Archivo;color:#AE3B36">★★★★<span style="color:rgba(43,42,39,.25)">★</span></div></div>
+      <div style="display:flex;flex-direction:column;gap:7px;flex:1;min-height:0;padding-top:12px"><span style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85)">NOTES</span><div style="flex:1;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);padding:9px 12px;font:400 12px 'JetBrains Mono';color:rgba(43,42,39,.72);line-height:1.55">Juicy, bergamot top, tea-like finish. Pulled a touch fast — coarsen a notch next time.<span style="display:inline-block;width:1px;height:13px;background:#AE3B36;vertical-align:-2px;margin-left:1px"></span></div></div>
+    </div>
+    <div style="padding:12px 16px 16px;display:flex;gap:10px">
+      <div style="flex:3;height:46px;border-radius:6px;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:800 13px Archivo;letter-spacing:.07em;color:#2B2A27;box-shadow:0 2px 6px rgba(0,0,0,.18);cursor:pointer">SAVE BREW</div>
+      <div style="flex:1;height:46px;border-radius:6px;background:transparent;border:1px solid rgba(43,42,39,.25);display:flex;align-items:center;justify-content:center;font:800 12px Archivo;letter-spacing:.05em;color:rgba(43,42,39,.55);cursor:pointer">CANCEL</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- B · 04 ADD COFFEE                                                  -->
+<!-- ================================================================= -->
+<div style="position:absolute;left:540px;top:2712px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">04 · Add Coffee</div>
+  <div style="position:relative;width:380px;height:760px;background:#EFEDE7;overflow:hidden;border:1.5px solid #D6D2C7;box-shadow:0 2px 7px rgba(0,0,0,.12);display:flex;flex-direction:column">
+    <div style="padding:20px 20px 14px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#2B2A27">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#2B2A27;line-height:1.1">Add Coffee</div></div>
+    </div>
+    <div style="padding:0 16px;display:flex;flex-direction:column;gap:16px;flex:1;min-height:0">
+      <div><div style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85);margin-bottom:7px">NAME</div><div style="background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);padding:13px 14px;font:700 15px Archivo;color:#2B2A27">Ethiopia Guji</div></div>
+      <div><div style="font:700 14px Archivo;letter-spacing:.02em;color:rgba(43,42,39,.85);margin-bottom:7px">ROAST LEVEL</div><div style="display:flex;background:#E9E5DC;border-radius:5px;box-shadow:inset 0 1px 3px rgba(0,0,0,.08);padding:3px;gap:3px"><div style="flex:1;text-align:center;padding:11px 0;border-radius:3px;font:700 11px Archivo;letter-spacing:.06em;color:rgba(43,42,39,.5);cursor:pointer">LIGHT</div><div style="flex:1;text-align:center;padding:11px 0;border-radius:3px;background:#AE3B36;font:700 11px Archivo;letter-spacing:.06em;color:#FAF9F5">MEDIUM</div><div style="flex:1;text-align:center;padding:11px 0;border-radius:3px;font:700 11px Archivo;letter-spacing:.06em;color:rgba(43,42,39,.5);cursor:pointer">DARK</div></div></div>
+    </div>
+    <div style="padding:12px 16px 16px;display:flex;gap:10px">
+      <div style="flex:3;height:46px;border-radius:6px;background:#E9B10A;display:flex;align-items:center;justify-content:center;font:800 13px Archivo;letter-spacing:.07em;color:#2B2A27;box-shadow:0 2px 6px rgba(0,0,0,.18);cursor:pointer">ADD TO INDEX</div>
+      <div style="flex:1;height:46px;border-radius:6px;background:transparent;border:1px solid rgba(43,42,39,.25);display:flex;align-items:center;justify-content:center;font:800 12px Archivo;letter-spacing:.05em;color:rgba(43,42,39,.55);cursor:pointer">CANCEL</div>
+    </div>
+  </div>
+</div>
+<!-- A · 05 SETTINGS -->
+<div style="position:absolute;left:80px;top:3542px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">05 · Settings</div>
+  <div style="position:relative;width:380px;height:760px;background:#201E1B;overflow:hidden;border:1.5px solid #3A3631;box-shadow:0 2px 9px rgba(0,0,0,.35);display:flex;flex-direction:column">
+    <div style="padding:20px 20px 16px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#EDE7DB">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#EDE7DB;line-height:1.1">Settings</div><div style="font:500 10px 'JetBrains Mono';color:rgba(237,231,219,.45);letter-spacing:.08em;margin-top:2px">DATA MANAGEMENT</div></div>
+    </div>
+    <div style="padding:6px 16px 0;display:flex;flex-direction:column;gap:14px">
+      <div style="font:700 9px Archivo;letter-spacing:.1em;color:rgba(237,231,219,.4)">DATA</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:15px 16px;cursor:pointer">
+        <div style="display:flex;align-items:center;gap:13px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#E9B10A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg><div><div style="font:700 14px Archivo;color:#EDE7DB">Import Data</div><div style="font:400 10px 'JetBrains Mono';color:rgba(237,231,219,.4);margin-top:2px">Restore from a JSON backup</div></div></div>
+        <span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#2A2723;border:1px solid #393530;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.3);padding:15px 16px;cursor:pointer">
+        <div style="display:flex;align-items:center;gap:13px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#E9B10A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><div><div style="font:700 14px Archivo;color:#EDE7DB">Export Data</div><div style="font:400 10px 'JetBrains Mono';color:rgba(237,231,219,.4);margin-top:2px">Download all brews as JSON</div></div></div>
+        <span style="font:400 18px Archivo;color:rgba(237,231,219,.4)">›</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- B · 05 SETTINGS -->
+<div style="position:absolute;left:540px;top:3542px;width:380px">
+  <div data-drags-parent="1" style="position:absolute;top:-21px;left:1px;font:600 11px Archivo,system-ui;letter-spacing:.12em;text-transform:uppercase;color:rgba(40,34,28,.6)">05 · Settings</div>
+  <div style="position:relative;width:380px;height:760px;background:#EFEDE7;overflow:hidden;border:1.5px solid #D6D2C7;box-shadow:0 2px 7px rgba(0,0,0,.12);display:flex;flex-direction:column">
+    <div style="padding:20px 20px 16px;display:flex;align-items:center;gap:13px">
+      <span style="font:400 24px Archivo;color:#2B2A27">‹</span>
+      <div style="flex:1"><div style="font:800 18px Archivo;color:#2B2A27;line-height:1.1">Settings</div><div style="font:500 10px 'JetBrains Mono';color:rgba(43,42,39,.5);letter-spacing:.08em;margin-top:2px">DATA MANAGEMENT</div></div>
+    </div>
+    <div style="padding:6px 16px 0;display:flex;flex-direction:column;gap:14px">
+      <div style="font:700 9px Archivo;letter-spacing:.1em;color:rgba(43,42,39,.45)">DATA</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:15px 16px;cursor:pointer">
+        <div style="display:flex;align-items:center;gap:13px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#AE3B36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg><div><div style="font:700 14px Archivo;color:#2B2A27">Import Data</div><div style="font:400 10px 'JetBrains Mono';color:rgba(43,42,39,.5);margin-top:2px">Restore from a JSON backup</div></div></div>
+        <span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#FAF9F5;border:1px solid #E8E4DA;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:15px 16px;cursor:pointer">
+        <div style="display:flex;align-items:center;gap:13px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#AE3B36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><div><div style="font:700 14px Archivo;color:#2B2A27">Export Data</div><div style="font:400 10px 'JetBrains Mono';color:rgba(43,42,39,.5);margin-top:2px">Download all brews as JSON</div></div></div>
+        <span style="font:400 18px Archivo;color:rgba(43,42,39,.4)">›</span>
+      </div>
+    </div>
+  </div>
+</div></x-dc>
+</body>
+</html>
