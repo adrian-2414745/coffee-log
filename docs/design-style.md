@@ -36,7 +36,7 @@ inventing a new size/weight, and if a genuinely new role is needed, add it here 
 
 | Role | Family / weight | Size | Tracking | Case | Emphasis |
 | --- | --- | --- | --- | --- | --- |
-| Dashboard title ("Coffee Index") | Archivo 800 | 22 | — | — | Primary |
+| Dashboard title ("Coffee Log") | Archivo 800 | 22 | — | — | Primary |
 | Screen-header title | Archivo 800 | 18 | — | — | Primary |
 | Card / row name, `SettingCard` title | Archivo 700 | 15 / 14 | — | — | Primary |
 | Text-field input (name) | Archivo 700 | 15 | — | — | Primary |
@@ -46,7 +46,7 @@ inventing a new size/weight, and if a genuinely new role is needed, add it here 
 | Status tag (`DISP` / `LEVEL` / `FAV`) | Archivo 700 | 8 | 0.7 | UPPER | accent if active, else Disabled (.28) |
 | RATIO-pill label | Archivo 700 | 7 | 0.9 | UPPER | Secondary (.35) |
 | Segmented option (`LIGHT`/`MEDIUM`/`DARK`) | Archivo 700 | 11 | 0.6 | UPPER | Primary selected, Secondary (.5) idle |
-| Primary button (`SAVE`, `Add coffee`, `Add brew`) | Archivo 800 | 13 | 0.9 | as written | onPrimary |
+| Primary button (`SAVE`, `ADD`, `ADD COFFEE`, `ADD BREW`) | Archivo 800 | 13 | 0.9 | UPPER | onPrimary |
 | Cancel button | Archivo 800 | 12 | 0.6 | UPPER | Secondary (.6) |
 | Header subtitle / metadata (`ETHIOPIA GUJI · UNSAVED`) | Mono 500 | 10 | 0.8 | UPPER | Secondary (.45) |
 | **Helper / descriptor subtitle** (settings "Restore from a JSON backup"; dashboard roast `(medium)`) | Mono 400 | 10 | — | sentence | Tertiary (.4) |
@@ -70,7 +70,7 @@ metadata. Don't render descriptor text in Archivo or at the name's own size.
 ## Color
 
 The **primary amber is shared across both themes** (primary action buttons — SAVE and the
-`Add coffee` / `Add brew` bars). Each
+`ADD COFFEE` / `ADD BREW` bars). Each
 theme also has a **tertiary accent** that differs — amber in dark, red in light — used
 for "active/live" affordances.
 
@@ -100,14 +100,14 @@ for "active/live" affordances.
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| primary | `#E9B10A` amber | primary action buttons — SAVE, `Add coffee` / `Add brew` (both themes) |
+| primary | `#E9B10A` amber | primary action buttons — SAVE, `ADD COFFEE` / `ADD BREW` (both themes) |
 | onPrimary | `#201E1B` (dark) / `#2B2A27` (light) | text/glyph on amber |
 | device frame border | `#3A3631` (dark) / `#D6D2C7` (light) | screen outline in mockup |
 
 ### Accent semantics
 
 - **Amber (`primary`)** — the one always-on brand color: the primary action buttons (SAVE,
-  and the `Add coffee` / `Add brew` bars).
+  and the `ADD COFFEE` / `ADD BREW` bars).
 - **Tertiary accent** (amber-dark / red-light) — "on / live / rated" states only:
   switches, the auto-computed RATIO value, star ratings, active status tags, notes caret,
   settings row icons.

@@ -42,7 +42,7 @@ fun HistoryScreen(
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
-        bottomBar = { AddBar(label = "Add brew", onClick = onAddBrew) },
+        bottomBar = { AddBar(label = "ADD BREW", onClick = onAddBrew) },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner)) {
             ScreenHeader(

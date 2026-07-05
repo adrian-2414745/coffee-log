@@ -57,7 +57,7 @@ fun DashboardScreen(
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
-        bottomBar = { AddBar(label = "Add coffee", onClick = onAddCoffee) },
+        bottomBar = { AddBar(label = "ADD COFFEE", onClick = onAddCoffee) },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner)) {
             Row(
@@ -66,7 +66,7 @@ fun DashboardScreen(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    "Coffee Index",
+                    "Coffee Log",
                     style = AppType.DashboardTitle,
                     color = MaterialTheme.colorScheme.onSurface,
                 )

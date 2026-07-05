@@ -2,7 +2,7 @@ Coffee Brewing Journal — App Specifications
 
 This app helps you remember your exact coffee recipes so you never have to repeat the frustrating process of "dialing in" your beans once you find the perfect cup.
 
-Screen 1: Main Dashboard ("Coffee Index")
+Screen 1: Main Dashboard ("Coffee Log")
 What it shows (Data to display)
 
     A list of all the coffee bags you have added, sorted alphabetically by name (case-insensitive).
@@ -11,7 +11,7 @@ What it shows (Data to display)
 
         Dose (grounds weight), grind size, brew time, final liquid yield (weight).
 
-    Empty state: when no coffees have been added yet, only the "+" button is shown.
+    Empty state: when no coffees have been added yet, only the "ADD COFFEE" button is shown.
 
     A settings button (gear icon) fixed at the top right of the screen.
 
@@ -19,7 +19,7 @@ How you interact with it (Page navigation & Buttons)
 
     Tap a coffee name: Takes you to Screen 2 (Coffee History Log).
 
-    Tap the "+" button: A fixed floating button at the bottom right of the screen that takes you to Screen 4 (Add New Coffee).
+    Tap the "ADD COFFEE" button: A fixed full-width button at the bottom of the screen that takes you to Screen 4 (Add New Coffee).
 
     Tap the settings button (top right): Takes you to Screen 6 (Settings).
 
@@ -48,13 +48,13 @@ What it shows (Data to display)
 
         The date the brew was logged.
 
-    Empty state: when no brews have been logged yet, only the "+" button is shown.
+    Empty state: when no brews have been logged yet, only the "ADD BREW" button is shown.
 
 How you interact with it (Page navigation & Buttons)
 
     An edit (pencil) icon in the header: Takes you to Screen 5 (Edit Coffee), to rename the coffee or change its roast level.
 
-    Tap the "+" button: A fixed floating button at the bottom right that takes you to Screen 3 (New Brew Input).
+    Tap the "ADD BREW" button: A fixed full-width button at the bottom of the screen that takes you to Screen 3 (New Brew Input).
 
     Press and hold (Long tap) a brew card: Opens a pop-up window asking: "Are you sure you want to delete?" with a [Yes] and [Cancel] button.
 
@@ -110,7 +110,7 @@ What you type in (Data input)
 
 Buttons (Fixed to the bottom of the screen)
 
-    ADD TO INDEX button: Saves the new coffee bag to the master list and returns to Screen 1. Disabled until Name is filled.
+    ADD button: Saves the new coffee bag to the master list and returns to Screen 1. Disabled until Name is filled.
 
     CANCEL button: Discards what was typed and returns to Screen 1 without saving.
 

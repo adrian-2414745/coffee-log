@@ -4,7 +4,7 @@ Screen flow as implemented in `CoffeeLogNavGraph.kt`.
 
 ```mermaid
 flowchart TD
-    Dashboard["Screen 1: Dashboard\n(Coffee Index)"]
+    Dashboard["Screen 1: Dashboard\n(Coffee Log)"]
     History["Screen 2: Coffee History Log"]
     BrewEdit["Screen 3: New/Edit Brew"]
     AddCoffee["Screen 4: Add New Coffee"]
@@ -12,17 +12,17 @@ flowchart TD
     Settings["Screen 6: Settings"]
 
     Dashboard -- "tap coffee name" --> History
-    Dashboard -- "tap +" --> AddCoffee
+    Dashboard -- "tap ADD COFFEE" --> AddCoffee
     Dashboard -- "tap settings icon" --> Settings
 
-    History -- "tap +" --> BrewEdit
+    History -- "tap ADD BREW" --> BrewEdit
     History -- "tap brew card" --> BrewEdit
     History -- "tap edit (pencil) icon" --> EditCoffee
     History -- "back ‹ / system back" --> Dashboard
 
     BrewEdit -- "SAVE / CANCEL / back ‹" --> History
 
-    AddCoffee -- "ADD TO INDEX / CANCEL / back ‹" --> Dashboard
+    AddCoffee -- "ADD / CANCEL / back ‹" --> Dashboard
 
     EditCoffee -- "SAVE / CANCEL / back ‹" --> History
 

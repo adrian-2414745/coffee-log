@@ -15,12 +15,12 @@ Legend: `[ ]` open · `[x]` done
 - [x] 1.2 Add dependencies: Compose BOM, navigation-compose, Room (+ ksp), kotlinx-serialization-json, lifecycle-viewmodel-compose, datastore-preferences.
 - [x] 1.3 `ui/theme/`: both palettes from the design canvas (B light, A Graphite dark) as Material 3 color schemes per architecture.md §4; bundle Archivo + JetBrains Mono in `res/font/` and map them in `Type.kt`. Theme follows system dark mode for now (toggle arrives in Story 8).
 - [x] 1.4 `CoffeeLogApp` (Application) with empty `AppContainer`; `MainActivity` setting Compose content wrapped in `CoffeeLogTheme`.
-- [x] 1.5 `NavGraph` with a placeholder Dashboard route as the start destination (bare `Scaffold`, "Coffee Index" title, gear icon and amber "+" FAB doing nothing yet).
+- [x] 1.5 `NavGraph` with a placeholder Dashboard route as the start destination (bare `Scaffold`, "Coffee Log" title, gear icon and amber "ADD COFFEE" bottom bar doing nothing yet).
 - [x] 1.6 Verify `./dev.sh` builds, installs, and launches on the emulator and phone.
 
 **Manual QA**
 - App installs and opens without crashing on both devices.
-- Empty dashboard shows "Coffee Index" title, gear icon top-right, amber "+" FAB bottom-right.
+- Empty dashboard shows "Coffee Log" title, gear icon top-right, amber "ADD COFFEE" bar at the bottom.
 - Colors/fonts match the design canvas; flipping system dark mode switches between the light (B) and Graphite (A) palettes.
 
 ---
@@ -44,15 +44,15 @@ Legend: `[ ]` open · `[x]` done
 
 *Goal: first real user flow — create coffees and see them listed.*
 
-- [x] 3.1 `AddCoffeeScreen` + ViewModel: mandatory name field, ROAST LEVEL segmented control (LIGHT/MEDIUM/DARK, via shared `SegmentedField`), fixed bottom `SaveCancelBar` ("ADD TO INDEX" 3× + "CANCEL" 1×, per the design); save disabled while name is blank; save persists and pops back; CANCEL/back discards.
-- [x] 3.2 `DashboardViewModel` exposing `Flow` of dashboard rows; `DashboardScreen` renders the coffee list (names only for now), empty state = FAB only.
-- [x] 3.3 Wire navigation: FAB → AddCoffee; back/CANCEL → Dashboard.
+- [x] 3.1 `AddCoffeeScreen` + ViewModel: mandatory name field, ROAST LEVEL segmented control (LIGHT/MEDIUM/DARK, via shared `SegmentedField`), fixed bottom `SaveCancelBar` ("ADD" 3× + "CANCEL" 1×, per the design); save disabled while name is blank; save persists and pops back; CANCEL/back discards.
+- [x] 3.2 `DashboardViewModel` exposing `Flow` of dashboard rows; `DashboardScreen` renders the coffee list (names only for now), empty state = `AddBar` only.
+- [x] 3.3 Wire navigation: `AddBar` ("ADD COFFEE") → AddCoffee; back/CANCEL → Dashboard.
 
 **Manual QA**
-- Fresh install shows only the "+" FAB (empty state).
+- Fresh install shows only the "ADD COFFEE" bar (empty state).
 - Add "Ethiopia" then "Brazil" → list shows Brazil, Ethiopia (alphabetical).
 - CANCEL and system back both discard typed input.
-- "ADD TO INDEX" stays disabled until a name is entered; roast level selection renders like the design's segmented control.
+- "ADD" stays disabled until a name is entered; roast level selection renders like the design's segmented control.
 - Kill and relaunch the app → coffees persist.
 
 ---
@@ -75,17 +75,17 @@ Legend: `[ ]` open · `[x]` done
 
 *Goal: the core loop — record brews and review them per coffee.*
 
-- [x] 5.1 `HistoryScreen` + ViewModel: coffee name in the top bar, brews newest-first, empty state = FAB only; dashboard row tap → History; back → Dashboard.
+- [x] 5.1 `HistoryScreen` + ViewModel: coffee name in the top bar, brews newest-first, empty state = `AddBar` only; dashboard row tap → History; back → Dashboard.
 - [x] 5.2 `RatioFormatter` (`1:n`, one decimal, weight only) + unit tests.
 - [x] 5.3 Shared components per the design: `MetricGrid` (4-column inset grid), `StatusTag` (DISP/LEVEL/★ FAV chips, active vs muted), `RatingStars`.
 - [x] 5.4 Brew card composable per the design canvas: two-row `MetricGrid` (DOSE/GRIND/TIME/TEMP + YIELD/VOL/RATIO/SCORE, `—` for missing VOL, accent-colored ratio), read-only `StatusTag` row, date (`createdAt`, e.g. `27 JUN 2026`) bottom-right.
 - [x] 5.5 `BrewEditScreen` + ViewModel (new mode) per the design: `StepperField` rows (−/+ nudge, center value directly editable, numeric keyboard) for DOSE/GRIND/TIME/YIELD/TEMP/VOL, live read-only `RatioPill` (AUTO), switches for DISP/LEVEL/FAV, star selector, NOTES free-text area, `COFFEE NAME · UNSAVED` subtitle, fixed `SaveCancelBar` ("SAVE" + "CANCEL").
 - [x] 5.6 Validation: save enabled only when dose (grounds) and yield (liquid weight) parse as numbers > 0; favorite ON stamps `favoritedAt`.
-- [x] 5.7 Wire navigation: History FAB → BrewEdit(new); SAVE persists and pops to History; CANCEL/back discards.
+- [x] 5.7 Wire navigation: History `AddBar` ("ADD BREW") → BrewEdit(new); SAVE persists and pops to History; CANCEL/back discards.
 - [x] 5.8 Unit tests for form parsing/validation.
 
 **Manual QA**
-- Tap a coffee → empty history with only the FAB.
+- Tap a coffee → empty history with only the "ADD BREW" bar.
 - Add a brew (dose 18 g, yield 36.5 g, grind 5.1, 28 s, temp 93, dispenser on, leveler off, 4 stars, favorite on, a short note).
 - Card matches the design: metric grid with all values, active DISP tag + muted LEVEL tag + active ★ FAV, ratio `1:2.0` in accent color, today's date bottom-right.
 - RATIO pill on the form updates live as dose/yield change.

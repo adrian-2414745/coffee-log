@@ -114,7 +114,7 @@ All reads are `Flow`s so screens update live after inserts, edits, deletes, and 
 Source of truth: [design/coffee-brewing-journal.dc.html](design/coffee-brewing-journal.dc.html) — a design canvas exported from Claude Design showing all five screens in two palette directions with identical layout and seed data:
 
 - **A — Graphite**: dark warm surfaces, amber accent.
-- **B — Functionalist**: light "Braun-quiet" molded panels, red accent (amber kept for FAB/SAVE).
+- **B — Functionalist**: light "Braun-quiet" molded panels, red accent (amber kept for the Add/SAVE bars).
 
 **Both directions ship**: B is the light theme, A is the dark theme — they share every layout, so the difference is confined to the color layer. The active theme is chosen by a **dark-theme toggle on the Settings screen** (see below), not by system dark mode alone.
 
@@ -127,7 +127,7 @@ Source of truth: [design/coffee-brewing-journal.dc.html](design/coffee-brewing-j
 | Card border | `#E8E4DA` | `#393530` | `outlineVariant` |
 | Inset panel (metric grids, inputs) | `#E9E5DC` | `#211E1A` | `surfaceContainerHighest` |
 | Primary text | `#2B2A27` | `#EDE7DB` | `onSurface` |
-| Accent — FAB, SAVE button | `#E9B10A` (amber) | `#E9B10A` | `primary` |
+| Accent — Add bar, SAVE button | `#E9B10A` (amber) | `#E9B10A` | `primary` |
 | Accent — ratio value, active tags/toggles, stars, icons | `#AE3B36` (red) | `#E9B10A` (amber) | `tertiary` |
 
 Muted/secondary text is the primary text color at reduced alpha (design uses ~.4–.5); inactive tags/toggles use outline-only styling at low alpha.
@@ -150,9 +150,9 @@ Muted/secondary text is the primary text color at reduced alpha (design uses ~.4
 | Star row (display on cards, input on form) | `RatingStars(editable: Boolean)` |
 | Segmented control (LIGHT/MEDIUM/DARK roast) | `SegmentedField` (M3 `SingleChoiceSegmentedButtonRow`) |
 | Bottom action bar — SAVE (3× width, filled amber) beside CANCEL (1×, outlined) | `SaveCancelBar` |
-| Amber circular FAB `+` | M3 `FloatingActionButton` |
+| Full-width amber bottom bar, e.g. "ADD COFFEE" / "ADD BREW" | `AddBar` |
 
-Screen-level notes from the canvas: dashboard title is **"Coffee Index"**; history/brew/add/settings screens use a `‹` back affordance + screen title header; New Brew shows a `COFFEE NAME · UNSAVED` subtitle; brew cards show their date (from `createdAt`, e.g. `27 JUN 2026`) bottom-right; Settings rows are cards with icon + title + mono subtitle ("Restore from a JSON backup" / "Download all brews as JSON").
+Screen-level notes from the canvas: dashboard title is **"Coffee Log"**; history/brew/add/settings screens use a `‹` back affordance + screen title header; New Brew shows a `COFFEE NAME · UNSAVED` subtitle; brew cards show their date (from `createdAt`, e.g. `27 JUN 2026`) bottom-right; Settings rows are cards with icon + title + mono subtitle ("Restore from a JSON backup" / "Download all brews as JSON").
 
 #### Design deltas vs the PRD
 
@@ -163,7 +163,7 @@ The canvas adds things the PRD never specified — treat the design as authorita
 3. **Brew date displayed** on history cards (already stored as `createdAt`).
 4. **Steppers instead of plain text fields** for numeric input (tap −/+ to nudge; the center value stays directly editable so arbitrary values remain possible).
 5. **Auto-calculated RATIO shown live on the brew form**, read-only.
-6. Button labels: **"SAVE"** and **"ADD TO INDEX"** instead of the PRD's generic "SAVE".
+6. Button labels: **"SAVE"** and **"ADD"** instead of the PRD's generic "SAVE"; the PRD's "+" FAB is implemented as a full-width labelled bottom bar (`AddBar`: "ADD COFFEE" / "ADD BREW") instead of a circular FAB.
 7. Tools/favorite on history cards are **read-only tags**, editable only on the form.
 
 Not in the design (PRD still governs): empty states, long-press delete + confirm dialog, edit mode entry by tapping a card.
@@ -205,8 +205,8 @@ Conventions:
 - Confirm-delete dialogs are UI-local state (a `rememberSaveable` holding the pending target), not ViewModel state.
 - Form fields in BrewEdit are held as strings and parsed on save, so partial input like `5.` never fights the keyboard. Numeric keyboards (`KeyboardType.Decimal`/`Number`) per field.
 - Validation: SAVE is enabled only when mandatory fields parse (grounds weight, liquid weight on BrewEdit; non-blank name on AddCoffee). Rating and favorite default to unset/off.
-- FABs ("+") and the SAVE/CANCEL bottom bar are fixed via `Scaffold` slots.
-- Empty states (Dashboard, History) render nothing but the FAB, per the PRD.
+- The `AddBar` ("ADD COFFEE" / "ADD BREW") and the `SaveCancelBar` (SAVE/CANCEL) are fixed via `Scaffold` bottom-bar slots.
+- Empty states (Dashboard, History) render nothing but the `AddBar`, per the PRD.
 
 ## 5. Import / export
 

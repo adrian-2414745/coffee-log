@@ -64,7 +64,7 @@ fun ScreenHeader(
     }
 }
 
-/** Fixed bottom bar with a wide amber labelled button, e.g. "Add coffee" / "Add brew". */
+/** Fixed bottom bar with a wide amber labelled button, e.g. "ADD COFFEE" / "ADD BREW". */
 @Composable
 fun AddBar(label: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val shape = RoundedCornerShape(6.dp)

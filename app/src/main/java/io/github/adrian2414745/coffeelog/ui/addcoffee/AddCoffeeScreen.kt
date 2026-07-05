@@ -31,7 +31,7 @@ fun AddCoffeeScreen(
         containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             SaveCancelBar(
-                saveLabel = "ADD TO INDEX",
+                saveLabel = "ADD",
                 onSave = { viewModel.save(onDone) },
                 onCancel = onDone,
                 saveEnabled = state.canSave,
