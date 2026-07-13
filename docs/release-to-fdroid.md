@@ -29,9 +29,9 @@ Good news — the app is already largely compliant:
 
 The remaining work is the checklist below.
 
-> **Progress (updated 2026-07-05):** Blockers 1 and 2 are **done**, and the text
-> half of blocker 5 is **done**. Remaining: repo visibility (3), release tag (4),
-> metadata images (5), and the submission steps (6–8). See the per-section notes.
+> **Progress (updated 2026-07-13):** Blockers 1, 2, and 3 are **done**, and the
+> text half of blocker 5 is **done**. Remaining: release tag (4), metadata
+> images (5), and the submission steps (6–8). See the per-section notes.
 
 ---
 
@@ -64,20 +64,21 @@ The `fdroiddata` metadata file will be named
 - SPDX identifier for the metadata `License:` field: **`GPL-3.0-only`**.
 - TODO (optional): add per-file license headers and/or a `README` note.
 
-### 3. Make the source repository public
+### 3. Make the source repository public — ✅ DONE
 
 The build recipe points at our public git repo
-(`https://github.com/adrian-2414745/coffee-log`). Confirm it is **public** and
-will stay that way. Ensure no secrets are committed (`local.properties`,
-keystores, and `*.apk`/`*.aab` are already git-ignored — good).
+(`https://github.com/adrian-2414745/coffee-log`). Confirmed **public** as of
+2026-07-13 (GPL-3.0 license showing correctly on the repo page). No secrets
+committed (`local.properties`, keystores, and `*.apk`/`*.aab` are already
+git-ignored — good).
 
 ### 4. Tag the release commit
 
 F-Droid builds a specific git tag. Each release needs a tag matching the
 version.
 
-- Bump `versionCode`/`versionName` as needed (currently `1` / `"1.0"`).
-- Create an annotated tag on the release commit, e.g. `git tag -a v1.0 -m "1.0"`.
+- Bump `versionCode`/`versionName` as needed (currently `1` / `"1.0.0"`).
+- Create an annotated tag on the release commit, e.g. `git tag -a v1.0.0 -m "1.0.0"`.
 - Push the tag. The build recipe references either this tag or its commit hash.
 
 ### 5. Add fastlane metadata to the repo — ⚠️ PARTIALLY DONE (text done, images left)
@@ -177,8 +178,8 @@ Confirm it succeeds with only the committed sources (no reliance on
 
 - [x] Change `applicationId`/`namespace` off `com.example.*` + move source package → `io.github.adrian2414745.coffeelog`
 - [x] Add `LICENSE` file (record SPDX id) → GPLv3, `GPL-3.0-only`
-- [ ] Confirm GitHub repo is public, no secrets committed
-- [ ] Tag the release commit (`v1.0`)
+- [x] Confirm GitHub repo is public, no secrets committed
+- [ ] Tag the release commit (`v1.0.0`)
 - [x] Add `fastlane/metadata/android/en-US/` (title, descriptions, changelog)
 - [ ] Capture and add phone screenshots (icon.png not needed — F-Droid uses the APK's vector launcher icon)
 - [ ] Verify `./gradlew clean :app:assembleRelease` from a clean checkout
