@@ -14,8 +14,8 @@ android {
         applicationId = "io.github.adrian2414745.coffeelog"
         minSdk = 34
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,7 +26,11 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            // Don't embed the git revision (META-INF/version-control-info.textproto):
+            // it varies with the checkout and breaks F-Droid's reproducible-build check.
+            vcsInfo.include = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",

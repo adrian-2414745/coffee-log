@@ -1,0 +1,1 @@
+* Grind setting now supports two decimal places (e.g. 5.25); the +/- stepper moves in 0.05 steps

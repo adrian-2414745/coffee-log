@@ -32,3 +32,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# fdroidserver output (from running `fdroid build` here)
+repo/

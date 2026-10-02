@@ -22,8 +22,9 @@ Good news — the app is already largely compliant:
   permissions** (no `INTERNET`), so there is nothing to declare as an
   anti-feature.
 - ✅ **Release build is unsigned** (no `signingConfig` in `app/build.gradle.kts`)
-  and `isMinifyEnabled = false` — F-Droid supplies its own signature, so this is
-  fine.
+  — F-Droid supplies its own signature, so this is fine.
+- ✅ **R8 enabled** (`isMinifyEnabled = true`, `isShrinkResources = true`) since
+  1.1.0, at the F-Droid reviewer's request: release APK 43.6 MB → 2.8 MB.
 - ✅ Custom launcher icon already exists.
 - ✅ Standard Gradle project layout — easy for F-Droid's build system.
 
