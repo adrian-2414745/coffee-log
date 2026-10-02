@@ -10,6 +10,7 @@ import io.github.adrian2414745.coffeelog.data.CoffeeRepository
 import io.github.adrian2414745.coffeelog.data.db.BrewEntity
 import io.github.adrian2414745.coffeelog.di.appContainer
 import io.github.adrian2414745.coffeelog.ui.navigation.BrewEdit
+import io.github.adrian2414745.coffeelog.util.MetricFormat
 import io.github.adrian2414745.coffeelog.util.RatioFormatter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -23,11 +24,26 @@ import java.util.Locale
 
 enum class StepField(val step: Double, val decimals: Int) {
     DOSE(0.5, 1),
-    GRIND(0.1, 1),
+    GRIND(0.05, 2),
     TIME(1.0, 0),
     YIELD(0.5, 1),
     TEMP(1.0, 0),
     VOL(1.0, 0),
+}
+
+/** Formats a stepped value: grind trims to 1–2 decimals, others use a fixed decimal count. */
+internal fun formatStepValue(field: StepField, value: Double): String =
+    if (field == StepField.GRIND) MetricFormat.grindValue(value)
+    else String.format(Locale.US, "%.${field.decimals}f", value)
+
+/** Keeps digits and (optionally) a single dot, with at most [maxDecimals] digits after it. */
+internal fun sanitizeNumber(input: String, allowDecimal: Boolean, maxDecimals: Int = Int.MAX_VALUE): String {
+    val filtered = input.filter { it.isDigit() || (allowDecimal && it == '.') }
+    if (!allowDecimal) return filtered
+    // keep only the first dot
+    val firstDot = filtered.indexOf('.')
+    if (firstDot < 0) return filtered
+    return filtered.substring(0, firstDot + 1) + filtered.substring(firstDot + 1).replace(".", "").take(maxDecimals)
 }
 
 data class BrewFormState(
@@ -72,7 +88,7 @@ class BrewEditViewModel(
                     originalBrew = b
                     _form.value = BrewFormState(
                         dose = fixed(b.groundsWeightG, 1),
-                        grind = optFixed(b.grindSize, 1),
+                        grind = b.grindSize?.let(MetricFormat::grindValue) ?: "",
                         time = b.brewTimeSec?.toString() ?: "",
                         yieldG = fixed(b.liquidWeightG, 1),
                         temp = plain(b.waterTemp),
@@ -88,12 +104,12 @@ class BrewEditViewModel(
         }
     }
 
-    fun onDoseChange(v: String) = _form.update { it.copy(dose = sanitize(v, true)) }
-    fun onGrindChange(v: String) = _form.update { it.copy(grind = sanitize(v, true)) }
-    fun onTimeChange(v: String) = _form.update { it.copy(time = sanitize(v, false)) }
-    fun onYieldChange(v: String) = _form.update { it.copy(yieldG = sanitize(v, true)) }
-    fun onTempChange(v: String) = _form.update { it.copy(temp = sanitize(v, true)) }
-    fun onVolChange(v: String) = _form.update { it.copy(vol = sanitize(v, false)) }
+    fun onDoseChange(v: String) = _form.update { it.copy(dose = sanitizeNumber(v, true)) }
+    fun onGrindChange(v: String) = _form.update { it.copy(grind = sanitizeNumber(v, true, maxDecimals = StepField.GRIND.decimals)) }
+    fun onTimeChange(v: String) = _form.update { it.copy(time = sanitizeNumber(v, false)) }
+    fun onYieldChange(v: String) = _form.update { it.copy(yieldG = sanitizeNumber(v, true)) }
+    fun onTempChange(v: String) = _form.update { it.copy(temp = sanitizeNumber(v, true)) }
+    fun onVolChange(v: String) = _form.update { it.copy(vol = sanitizeNumber(v, false)) }
 
     fun onDispenserChange(v: Boolean) = _form.update { it.copy(usedDispenser = v) }
     fun onLevelerChange(v: Boolean) = _form.update { it.copy(usedLeveler = v) }
@@ -113,7 +129,7 @@ class BrewEditViewModel(
             }
             val base = current.toDoubleOrNull() ?: 0.0
             val next = (base + delta * field.step).coerceAtLeast(0.0)
-            val formatted = String.format(Locale.US, "%.${field.decimals}f", next)
+            val formatted = formatStepValue(field, next)
             when (field) {
                 StepField.DOSE -> state.copy(dose = formatted)
                 StepField.GRIND -> state.copy(grind = formatted)
@@ -158,18 +174,8 @@ class BrewEditViewModel(
         }
     }
 
-    private fun sanitize(input: String, allowDecimal: Boolean): String {
-        val filtered = input.filter { it.isDigit() || (allowDecimal && it == '.') }
-        if (!allowDecimal) return filtered
-        // keep only the first dot
-        val firstDot = filtered.indexOf('.')
-        if (firstDot < 0) return filtered
-        return filtered.substring(0, firstDot + 1) + filtered.substring(firstDot + 1).replace(".", "")
-    }
-
     companion object {
         private fun fixed(v: Double, dec: Int) = String.format(Locale.US, "%.${dec}f", v)
-        private fun optFixed(v: Double?, dec: Int) = v?.let { String.format(Locale.US, "%.${dec}f", it) } ?: ""
         private fun plain(v: Double?): String {
             if (v == null) return ""
             return if (v % 1.0 == 0.0) v.toLong().toString() else String.format(Locale.US, "%.1f", v)

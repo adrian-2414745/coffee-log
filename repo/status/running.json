@@ -1,0 +1,27 @@
+{
+  "/etc/issue.net": "Ubuntu 24.04.4 LTS",
+  "commandLine": [
+    "/usr/bin/fdroid build",
+    "-v",
+    "-l",
+    "io.github.adrian2414745.coffeelog"
+  ],
+  "fdroiddata": {
+    "commitId": "76e689ad3520a9af716725975d4c85097ac8207f",
+    "isDirty": false,
+    "modifiedFiles": [],
+    "untrackedFiles": [
+      "AGENTS.md",
+      "dev-emulator.sh",
+      "docs/screenshots/AddCoffee.jpg",
+      "docs/screenshots/BrewEdit.jpg",
+      "docs/screenshots/BrewsView.jpg",
+      "docs/screenshots/CoffeeLog-light-theme.jpg",
+      "docs/screenshots/CoffeeLog.jpg",
+      "docs/screenshots/Settings.jpg",
+      "repo/status/running.json"
+    ]
+  },
+  "startTimestamp": 1787500816000,
+  "subcommand": "build"
+}

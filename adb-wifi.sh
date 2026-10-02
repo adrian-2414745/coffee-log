@@ -9,10 +9,7 @@
 #
 set -euo pipefail
 
-export ANDROID_HOME="${ANDROID_HOME:-$HOME/Android/Sdk}"
-export ANDROID_SDK_ROOT="$ANDROID_HOME"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-export ANDROID_ADB_SERVER_ADDRESS="${ANDROID_ADB_SERVER_ADDRESS:-127.0.0.1}"
+source "$(dirname "$0")/adb-env.sh"
 
 PHONE_IP="${PHONE_IP:-192.168.50.43}"   # static, reserved on the router
 PORT="${1:-}"
@@ -23,6 +20,8 @@ if [ -z "$PORT" ]; then
   echo "   debugging -> 'IP address & Port'. Port changes each toggle/reboot.)"
   exit 1
 fi
+
+ensure_adb_server
 
 TARGET="$PHONE_IP:$PORT"
 echo ">> connecting to $TARGET ..."

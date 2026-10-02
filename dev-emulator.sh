@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Build the debug APK in WSL and install+launch it on every connected device
-# (emulator and/or USB phone), which are owned by the Windows adb server and
-# reached over shared localhost (WSL mirrored networking).
+# Build the debug APK in WSL and install+launch it on the emulator only
+# (skips any connected USB/Wi-Fi phone), reached over shared localhost
+# (WSL mirrored networking) via the Windows adb server.
 set -euo pipefail
 
 APP_ID="io.github.adrian2414745.coffeelog"
@@ -13,9 +13,9 @@ echo ">> building debug APK..."
 ./gradlew assembleDebug
 APK="app/build/outputs/apk/debug/app-debug.apk"
 
-mapfile -t DEVICES < <(unique_devices)
+mapfile -t DEVICES < <(adb devices | awk 'NR>1 && $2=="device" && $1 ~ /^emulator-/{print $1}')
 if [ "${#DEVICES[@]}" -eq 0 ]; then
-  echo "!! no devices. Start the emulator on Windows, or plug in the phone (USB debugging on)."
+  echo "!! no emulator running. Start it on Windows: D:\\ws\\android-sdk\\emulator\\emulator.exe -avd coffeelog"
   exit 1
 fi
 
