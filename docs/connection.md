@@ -51,6 +51,10 @@ Then build + install + launch on all connected devices (phone + emulator):
   bridge — that's expected; use the explicit port instead.
 - If the phone silently drops off `adb devices` after idle, just re-run
   `./adb-wifi.sh <port>`.
+- The phone may be listed **twice** — `192.168.50.43:<port>` and an mDNS entry
+  `adb-R5CT21W9WHY-…._adb-tls-connect._tcp`. Same device: `dev.sh` dedupes by
+  `ro.serialno` (`unique_devices` in `adb-env.sh`). Note `adb get-serialno` only
+  echoes the transport name, so it can't be used to dedupe.
 - Fallback (no pairing dance): plug in via USB once, run `adb tcpip 5555`, then
   `adb connect 192.168.50.43:5555` works on a fixed port.
 

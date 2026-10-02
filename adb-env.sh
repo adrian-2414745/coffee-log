@@ -31,6 +31,7 @@ unique_devices() {
   local d serial
   declare -A seen=()
   while read -r d; do
+    # </dev/null: otherwise `adb shell` swallows the rest of the loop's input
     serial="$(adb -s "$d" shell getprop ro.serialno </dev/null 2>/dev/null | tr -d '\r')"
     [ -n "$serial" ] || serial="$d"
     if [ -z "${seen[$serial]:-}" ]; then

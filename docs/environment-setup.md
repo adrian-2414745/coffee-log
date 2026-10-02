@@ -48,6 +48,11 @@ WSL adb client → Windows adb server over shared `localhost:5037`, enabled by
 `ANDROID_ADB_SERVER_ADDRESS=127.0.0.1` plus mirrored networking. adb versions must
 match on both sides (both r37). WSL's `adb devices` lists `emulator-5554` directly.
 
+The WSL client **never starts the Windows server** — if it isn't running, every
+`adb` command just hangs (`localhost:5037` closed). The repo scripts handle this via
+`ensure_adb_server` in `adb-env.sh`; manually:
+`/mnt/d/ws/android-sdk/platform-tools/adb.exe start-server`.
+
 ## Everyday dev loop
 
 ```bash

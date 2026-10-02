@@ -1,0 +1,1 @@
+- Grind displayed rounded although the full value was saved -> check display/format paths (`MetricFormat`, edit-form load, stepper) before blaming persistence.

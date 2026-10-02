@@ -127,6 +127,13 @@ local SDK. Sanity-check:
 Confirm it succeeds with only the committed sources (no reliance on
 `local.properties` beyond the SDK path, which F-Droid provides).
 
+**The build must be reproducible** — the recipe uses `Binaries:`, so F-Droid
+rebuilds the tag and rejects our signed APK unless it matches byte for byte.
+`vcsInfo.include = false` in the release build type is required for this: AGP 8.3+
+otherwise embeds the git revision (`META-INF/version-control-info.textproto`),
+which differs between checkouts. Check by building the tag in two different
+clones and comparing `sha256sum` of the unsigned APKs.
+
 ### 7. Write and test the `fdroiddata` build recipe
 
 - Fork [`fdroiddata`](https://gitlab.com/fdroid/fdroiddata), branch named after
@@ -141,7 +148,9 @@ Confirm it succeeds with only the committed sources (no reliance on
   - `AutoUpdateMode` / `UpdateCheckMode` (Gradle version is in the standard
     place, so `Tags` or `HTTP` auto-update should work with minimal config).
   - `CurrentVersion` / `CurrentVersionCode`.
-- Test locally with `fdroidserver` (Docker) before submitting:
+- Test locally with `fdroidserver` (Docker) before submitting. Run these **only in
+  the fdroiddata checkout** (`~/ws/f-droid-data`) — run inside the app repo they
+  create a stray `repo/` dir there:
 
   ```bash
   fdroid readmeta
